@@ -31,6 +31,31 @@ public class Svømmer {
 
     public void gemSvømmere(ArrayList medlemmer) {
         fh.gemSvømmere(medlemmer);
+
+    }
+
+    public void tilføjGemteMedlemmer(ArrayList medlemmer) {
+        fh.addGemteMedlemmer(medlemmer);
+    }
+
+    public String søgMedlem(String søgeNavn) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Svømmer s : medlemmer) {
+            if (s.getNavn().toLowerCase().contains(søgeNavn.toLowerCase()))
+                stringBuilder.append(s.getNavn() + ". ");
+        }
+        return stringBuilder.toString();
+    }
+
+    public Svømmer visMedlem(String bestemtSøgeNavn) {
+        for (Svømmer s : medlemmer) {
+            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
+                return s;
+            }
+
+        }
+
+        return null;
     }
 
     public ArrayList visMedlemmer() {
@@ -105,6 +130,14 @@ public class Svømmer {
         return medlemmer;
     }
 
+    public void ændreNavn(String bestemtSøgeNavn, String nytNavn) {
+        for (Svømmer s : medlemmer) {
+            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
+                s.setNavn(nytNavn);
+            }
+        }
+    }
+
     public void setMedlemmer(ArrayList<Svømmer> medlemmer) {
         this.medlemmer = medlemmer;
     }
@@ -132,6 +165,9 @@ public class Svømmer {
         for (Svømmer s : medlemmer) {
             if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
                 s.setAlder(nyAlder);
+            }
+            if (nyAlder == 18){
+                s.setAldersGruppe("Senior");
             }
         }
     }

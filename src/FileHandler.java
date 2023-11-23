@@ -27,7 +27,7 @@ public class FileHandler {
         output.close();
     }
 
-/*
+
     public void addGemteMedlemmer(ArrayList<Svømmer> a) {
 
         Scanner sc = null;
@@ -40,10 +40,20 @@ public class FileHandler {
             String linje = sc.next();
             String[] attributter = linje.replace('@', ' ').split(",");
 
-            int yearCreated = Integer.parseInt(attributter[3]);
-            a.add(new Svømmer(attributter[0], attributter[1], attributter[2], yearCreated, attributter[4], attributter[5]));
+            boolean erAktiv = true;
+            if (attributter[2] == "true") {
+                erAktiv = true;
+            } else if (attributter[2]=="false") {
+                erAktiv = false;
+                
+            }
+
+            int alder = Integer.parseInt(attributter[3]);
+
+            int telefonNummer = Integer.parseInt(attributter[6]);
+            a.add(new Svømmer(attributter[0], attributter[1], erAktiv, alder, attributter[4], attributter[5], telefonNummer, attributter[7]));
         }
 
-    }*/
+    }
 }
 
