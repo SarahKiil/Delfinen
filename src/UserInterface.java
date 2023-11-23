@@ -5,10 +5,10 @@ public class UserInterface {
     private Controller controller;
     Scanner keyboard = new Scanner(System.in);
 
-    public void startProgram(){
-    UserInterface m = new UserInterface();
-    m.controller = new Controller();
-    m.tilføjSvømmer();
+    public void startProgram() {
+        UserInterface m = new UserInterface();
+        m.controller = new Controller();
+        m.loadSvømmere();
     }
 
     public void tilføjSvømmer(){
@@ -27,7 +27,7 @@ public class UserInterface {
         String svømmeDisciplin = keyboard.next();
 
         String aldersGruppe = "Junior";
-        if (alder > 17){
+        if (alder > 17) {
             aldersGruppe = "Senior";
         }
 
@@ -37,6 +37,3 @@ public class UserInterface {
     }
 
 
-
-
-}

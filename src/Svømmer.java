@@ -23,19 +23,17 @@ public class Svømmer {
 
     }
 
-
-
-    public Svømmer(){
+    public Svømmer() {
         fh = new FileHandler();
     }
 
-    private ArrayList<Svømmer> medlemmer= new ArrayList<Svømmer>();
+    private ArrayList<Svømmer> medlemmer = new ArrayList<Svømmer>();
 
     public void gemSvømmere(ArrayList medlemmer) {
         fh.gemSvømmere(medlemmer);
     }
 
-    public ArrayList visMedlemmer(){
+    public ArrayList visMedlemmer() {
         return medlemmer;
     }
 
@@ -95,11 +93,11 @@ public class Svømmer {
         this.telefonNummer = telefonNummer;
     }
 
-    public String getSvømmeDisciplin (){
+    public String getSvømmeDisciplin() {
         return svømmeDisciplin;
     }
 
-    public void setSvømmeDisciplin(String svømmeDisciplin){
+    public void setSvømmeDisciplin(String svømmeDisciplin) {
         this.svømmeDisciplin = svømmeDisciplin;
     }
 
@@ -126,8 +124,55 @@ public class Svømmer {
     }
 
 
-
     public void tilføjSvømmer(String navn, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
         medlemmer.add(new Svømmer(navn, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin));
+    }
+
+    public void redigerAlder(String bestemtSøgeNavn, int nyAlder) {
+        for (Svømmer s : medlemmer) {
+            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
+                s.setAlder(nyAlder);
+            }
+        }
+    }
+
+    public void redigerAdresse(String bestemtSøgeNavn, String nyAdresse) {
+        for (Svømmer s : medlemmer) {
+            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
+                s.setAdresse(nyAdresse);
+            }
+        }
+    }
+
+    public void redigerErAktiv(String bestemtSøgeNavn, boolean nyErAktiv) {
+        for (Svømmer s : medlemmer) {
+            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
+                s.setErAktiv(nyErAktiv);
+            }
+        }
+    }
+
+    public void redigerEmailAdresse(String bestemtSøgeNavn, String nyEmailAdresse) {
+        for (Svømmer s : medlemmer) {
+            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
+                s.setEmailAdresse(nyEmailAdresse);
+            }
+        }
+    }
+
+    public void redigerSvømmeDisciplin(String bestemtSøgeNavn, String nySvømmeDisciplin) {
+        for (Svømmer s : medlemmer) {
+            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
+                s.setSvømmeDisciplin(nySvømmeDisciplin);
+            }
+        }
+    }
+
+    public void redigerTelefonnummer(String bestemtSøgeNavn, int nytTelefonnummer) {
+        for (Svømmer s : medlemmer) {
+            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
+                s.setTelefonNummer(nytTelefonnummer);
+            }
+        }
     }
 }

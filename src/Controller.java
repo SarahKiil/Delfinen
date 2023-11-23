@@ -14,10 +14,10 @@ public class Controller {
     }
 
     public ArrayList visMedlemmer() {
-       return sv.visMedlemmer();
+        return sv.visMedlemmer();
     }
 
-    public void gemSvømmmere(){
+    public void gemSvømmmere() {
         sv.gemSvømmere(sv.visMedlemmer());
     }
 }
