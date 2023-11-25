@@ -1,1 +1,1 @@
-acnelouder,Senior,true,32,dsds,dsfdsds,432323233,fdsfdsfds
+johnny,Junior,true,12,sejvej,johnnymail,12345678,crawl,1234567,0,0,0,1/2/12,Intet,Intet,Intet
