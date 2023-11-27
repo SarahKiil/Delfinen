@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Svømmer {
     private String navn;
+    private int idNummer;
     private String aldersGruppe;
     private boolean erAktiv;
     private int alder;
@@ -21,8 +23,9 @@ public class Svømmer {
     FileHandler fh;
 
 
-    public Svømmer(String navn, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
+    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
         this.navn = navn;
+        this.idNummer = idNummer;
         this.aldersGruppe = aldersGruppe;
         this.erAktiv = erAktiv;
         this.adresse = adresse;
@@ -33,8 +36,9 @@ public class Svømmer {
 
     }
 
-    public Svømmer(String navn, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDatoytr) {
+    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDatoytr) {
         this.navn = navn;
+        this.idNummer = idNummer;
         this.aldersGruppe = aldersGruppe;
         this.erAktiv = erAktiv;
         this.adresse = adresse;
@@ -154,6 +158,17 @@ public class Svømmer {
         return null;
     }
 
+    public Svømmer visMedlemID(int søgeID) {
+        for (Svømmer s : medlemmer) {
+            if (s.getIDNummer() == søgeID) {
+                return s;
+            }
+
+        }
+
+        return null;
+    }
+
     public ArrayList visMedlemmer() {
         return medlemmer;
     }
@@ -226,6 +241,10 @@ public class Svømmer {
         return medlemmer;
     }
 
+    public int getIDNummer(){
+        return idNummer;
+    }
+
     public void ændreNavn(String bestemtSøgeNavn, String nytNavn) {
         for (Svømmer s : medlemmer) {
             if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
@@ -242,6 +261,7 @@ public class Svømmer {
     public String toString() {
         return "Svømmerens " +
                 "navn: " + navn + '\'' +
+                " ID: " + idNummer + '\'' +
                 ", aldersgruppen svømmeren tilhører: " + aldersGruppe + '\'' +
                 ", er medlemmet aktivt? " + erAktiv +
                 ", medlemmets alder: " + alder +
@@ -251,8 +271,8 @@ public class Svømmer {
     }
 
 
-    public void tilføjSvømmer(String navn, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
-        medlemmer.add(new Svømmer(navn, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin));
+    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
+        medlemmer.add(new Svømmer(navn, idNummer, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin));
     }
 
     public void redigerAlder(String bestemtSøgeNavn, int nyAlder) {
@@ -304,5 +324,15 @@ public class Svømmer {
                 s.setTelefonNummer(nytTelefonnummer);
             }
         }
+    }
+
+    public int skabIDNummer() {
+        Random random = new Random();
+        int nytIDNummer = random.nextInt(10000000);
+        for (Svømmer s : medlemmer)
+            while (nytIDNummer==s.getIDNummer()){
+                nytIDNummer = random.nextInt(10000000);
+            }
+        return nytIDNummer;
     }
 }

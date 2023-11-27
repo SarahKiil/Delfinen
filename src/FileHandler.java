@@ -18,12 +18,13 @@ public class FileHandler {
             throw new RuntimeException(e);
         }
         for (Svømmer s : a) {
-            output.println(s.getNavn().replace(' ', '@') + "," +
-                    s.getAldersGruppe().replace(' ', '@') + "," +
+            output.println(s.getNavn() + "," +
+                    s.getIDNummer() + "," +
+                    s.getAldersGruppe() + "," +
                     s.isErAktiv() + "," +
                     s.getAlder() + "," +
-                    s.getAdresse().replace(' ', '@') + "," +
-                    s.getEmailAdresse().replace(' ', '@') + "," +
+                    s.getAdresse() + "," +
+                    s.getEmailAdresse() + "," +
                     s.getTelefonNummer()+"," +s.getSvømmeDisciplin() + "," +
                     s.getBedsteResultatCrawl() + "," +
                             s.getBedsteResultatRygCrawl() + "," +
@@ -49,25 +50,26 @@ public class FileHandler {
             throw new RuntimeException(e);
         }
         while (sc.hasNext()) {
-            String linje = sc.next();
-            String[] attributter = linje.replace('@', ' ').split(",");
+            String linje = sc.nextLine();
+            String[] attributter = linje.split(",");
 
             boolean erAktiv = true;
-            if (attributter[2] == "true") {
+            if (attributter[3] == "true") {
                 erAktiv = true;
-            } else if (attributter[2]=="false") {
+            } else if (attributter[3]=="false") {
                 erAktiv = false;
                 
             }
 
-            int alder = Integer.parseInt(attributter[3]);
+            int alder = Integer.parseInt(attributter[4]);
 
-            int telefonNummer = Integer.parseInt(attributter[6]);
-            int crawl = Integer.parseInt(attributter[8]);
-            int rygCrawl = Integer.parseInt(attributter[9]);
-            int brystSvømning = Integer.parseInt(attributter[10]);
-            int butterfly = Integer.parseInt(attributter[11]);
-            a.add(new Svømmer(attributter[0], attributter[1], erAktiv, alder, attributter[4], attributter[5], telefonNummer, attributter[7], crawl, rygCrawl, brystSvømning, butterfly, attributter[12], attributter[13], attributter[14], attributter[15]));
+            int telefonNummer = Integer.parseInt(attributter[7]);
+            int crawl = Integer.parseInt(attributter[9]);
+            int rygCrawl = Integer.parseInt(attributter[10]);
+            int brystSvømning = Integer.parseInt(attributter[11]);
+            int butterfly = Integer.parseInt(attributter[12]);
+            int idNummer = Integer.parseInt(attributter[1]);
+            a.add(new Svømmer(attributter[0], idNummer, attributter[2], erAktiv, alder, attributter[5], attributter[6], telefonNummer, attributter[8], crawl, rygCrawl, brystSvømning, butterfly, attributter[13], attributter[14], attributter[15], attributter[16]));
 
         }
 

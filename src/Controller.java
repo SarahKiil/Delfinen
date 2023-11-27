@@ -9,8 +9,8 @@ public class Controller {
 
     }
 
-    public void tilføjSvømmer(String navn, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
-        sv.tilføjSvømmer(navn, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
+    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
+        sv.tilføjSvømmer(navn, idNummer, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
     }
 
     public ArrayList visMedlemmer() {
@@ -32,6 +32,11 @@ public class Controller {
     public Svømmer visMedlem(String bestemtSøgeNavn) {
         return sv.visMedlem(bestemtSøgeNavn);
     }
+
+    public Svømmer visMedlemID(int søgeID) {
+        return sv.visMedlemID(søgeID);
+    }
+
 
     public void ændreNavn(String bestemtSøgeNavn, String nytNavn) {
         sv.ændreNavn(bestemtSøgeNavn, nytNavn);
@@ -124,6 +129,10 @@ public class Controller {
 
     public void setBedsteResultatButterflyDato(String bedsteResultatButterflyDato){
         sv.setBedsteResultatButterflyDato(bedsteResultatButterflyDato);
+    }
+
+    public int skabIDNummer(){
+        return sv.skabIDNummer();
     }
 }
 

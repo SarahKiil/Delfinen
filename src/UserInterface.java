@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class UserInterface {
+    private boolean ændret = false;
     private Svømmer sv;
     private Controller controller;
     Scanner keyboard = new Scanner(System.in);
@@ -25,6 +26,11 @@ public class UserInterface {
         System.out.println("5. Vis træningsresultater.");
         System.out.println("6. Indtast nye træningsresultater.");
         System.out.println("9. Luk programmet.");
+        if (!keyboard.hasNextInt()) {
+            String text = keyboard.next();
+            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+            menu();
+        }
         char brugerValg = keyboard.next().charAt(0);
 
         switch (brugerValg) {
@@ -44,6 +50,7 @@ public class UserInterface {
                 lukProgrammet();
 
         }
+        menu();
     }
 
     private void gemSvømmere() {
@@ -80,6 +87,11 @@ public class UserInterface {
         System.out.println("3. Brystsvømning");
         System.out.println("4. Butterfly");
         System.out.println("5. Gå tilbage til menuen.");
+        if (!keyboard.hasNextInt()) {
+            String text = keyboard.next();
+            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+            visTræningsResultat();
+        }
         char brugerValg = keyboard.next().charAt(0);
 
         
@@ -131,6 +143,7 @@ public class UserInterface {
             case '5':
                 menu();
         }
+        visTræningsResultat();
     }
 
     private void indtastTræningsResultat(){
@@ -184,6 +197,10 @@ public class UserInterface {
         }
 
         System.out.println("Hvilken træningsdisciplin vil du indtaste resultat for");
+        if (!keyboard.hasNextInt()) {
+            String text = keyboard.next();
+            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+        }
         char brugerValg = keyboard.next().charAt(0);
 
 
@@ -257,13 +274,15 @@ public class UserInterface {
             case '5':
                 menu();
         }
+        indtastTræningsResultat();
     }
 
 
 
 
     private void lukProgrammet() {
-        controller.gemSvømmmere();
+        if (ændret){
+        controller.gemSvømmmere();}
         System.out.println("Programmet lukkes og dine ændringer gemmes");
         System.exit(0);
     }
@@ -282,16 +301,24 @@ public class UserInterface {
         int telefonNummer = keyboard.nextInt();
         System.out.println("Hvad er svømmerens svømmedesciplin?");
         String svømmeDisciplin = keyboard.next();
+        keyboard.nextLine();
 
         String aldersGruppe = "Junior";
         if (alder > 17) {
             aldersGruppe = "Senior";
         }
 
-        controller.tilføjSvømmer(navn, aldersGruppe, true, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
-        controller.gemSvømmmere();
+        int idNummer = controller.skabIDNummer();
 
+        controller.tilføjSvømmer(navn, idNummer, aldersGruppe, true, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
+        controller.gemSvømmmere();
+        System.out.println("Svømmeren er oprettet.");
+        ændret = true;
+
+        System.out.println("Tryk på enter for at gå tilbage til menuen.");
+        keyboard.nextLine();
         menu();
+
 
     }
 
@@ -299,6 +326,18 @@ public class UserInterface {
         if (controller.visMedlemmer().size() == 0) {
             System.out.println("Du har ikke registreret nogen medlemmer endnu.");
             tilføjSvømmer();
+        }
+
+        System.out.println("Vil du søge ved at bruge medlemmets navn eller medlems ID?");
+        System.out.println("1. Navn.");
+        System.out.println("2. ID.");
+        if (!keyboard.hasNextInt()) {
+            String text = keyboard.next();
+            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+        }
+        char søgeValg = keyboard.next().charAt(0);
+        if (søgeValg == '2'){
+            søgViaID();
         }
         System.out.println("Skriv navnet på det medlem, du vil søge efter:");
         String søgeNavn = keyboard.next();
@@ -308,9 +347,19 @@ public class UserInterface {
         String bestemtSøgeNavn = keyboard.nextLine();
         if (controller.visMedlem(bestemtSøgeNavn) == null) {
             System.out.println("Kunne ikke finde: " + bestemtSøgeNavn);
-            tilføjSvømmer();
+            menu();
         }
         System.out.println(controller.visMedlem(bestemtSøgeNavn));
+        System.out.println("Tryk på enter for at gå tilbage til menuen.");
+        keyboard.nextLine();
+        menu();
+    }
+
+    private void søgViaID(){
+        System.out.println("Hvad er medlemmets ID nummer?");
+        int søgeID = keyboard.nextInt();
+        System.out.println(controller.visMedlemID(søgeID));
+        keyboard.nextLine();
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
         keyboard.nextLine();
         menu();
@@ -345,6 +394,12 @@ public class UserInterface {
         System.out.println("5. Medlemmets emailadresse");
         System.out.println("6. Medlemmets telefonnummer");
         System.out.println("7. Medlemmets svømmedisciplin");
+
+        if (!keyboard.hasNextInt()) {
+            String text = keyboard.next();
+            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+        }
+
         char redigerMedlem = keyboard.next().charAt(0);
         switch (redigerMedlem) {
             case '1':
@@ -362,6 +417,7 @@ public class UserInterface {
             case '7':
                 redigerSvømmeDisciplin(bestemtSøgeNavn);
         }
+        redigerEtMedlem();
     }
 
     private void redigerNavn(String bestemtSøgeNavn) {
@@ -390,6 +446,7 @@ public class UserInterface {
         System.out.println("Alderen er ændret!");
         System.out.println(controller.visMedlem(bestemtSøgeNavn));
 
+        ændret = true;
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
         keyboard.nextLine();
         menu();
@@ -403,6 +460,7 @@ public class UserInterface {
         System.out.println("Adressen er ændret!");
         System.out.println(controller.visMedlem(bestemtSøgeNavn));
 
+        ændret = true;
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
         keyboard.nextLine();
         menu();
@@ -422,6 +480,7 @@ public class UserInterface {
         System.out.println("Styrkeniveauet er ændret");
         System.out.println(controller.visMedlem(bestemtSøgeNavn));
 
+        ændret = true;
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
         keyboard.nextLine();
         menu();
@@ -437,6 +496,7 @@ public class UserInterface {
         System.out.println("Emailadressen er ændret");
         System.out.println(controller.visMedlem(bestemtSøgeNavn));
 
+        ændret = true;
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
         keyboard.nextLine();
         menu();
@@ -449,12 +509,14 @@ public class UserInterface {
         if (!keyboard.hasNextInt()) {
             String text = keyboard.next();
             System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+            redigerTelefonnummer(bestemtSøgeNavn);
         }
         int nytTelefonnummer = keyboard.nextInt();
         controller.redigerAlder(bestemtSøgeNavn, nytTelefonnummer);
         System.out.println("Telefonnummeret er ændret!");
         System.out.println(controller.visMedlem(bestemtSøgeNavn));
 
+        ændret = true;
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
         keyboard.nextLine();
         menu();
@@ -469,6 +531,7 @@ public class UserInterface {
         System.out.println("Svømmedisciplinerne er ændret");
         System.out.println(controller.visMedlem(bestemtSøgeNavn));
 
+        ændret = true;
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
         keyboard.nextLine();
         menu();
