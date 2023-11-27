@@ -472,10 +472,7 @@ public class UserInterface {
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
         keyboard.nextLine();
         menu();
-
     }
-
-
 }
 
 
