@@ -37,6 +37,10 @@ public class UserInterface {
             case '4':
                 gemSvømmere();
             case '5':
+                visTræningsResultat();
+            case '6':
+                indtastTræningsResultat();
+            case '9':
                 lukProgrammet();
 
         }
@@ -314,7 +318,7 @@ public class UserInterface {
 
     private void redigerEtMedlem() {
         if (controller.visMedlemmer().size() == 0) {
-            System.out.println("Du har ikke nogle superhelte endnu.");
+            System.out.println("Du har ikke nogle medlemmer endnu.");
             menu();
         }
         System.out.println("Skriv navnet på det medlem, du vil søge efter:");

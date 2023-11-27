@@ -9,7 +9,17 @@ public class Svømmer {
     private String emailAdresse;
     private int telefonNummer;
     private String svømmeDisciplin;
+    private int bedsteResultatCrawl = 0;
+    private int bedsteResultatRygCrawl = 0;
+    private int bedsteResultatBrystSvømning = 0;
+    private int bedsteResultatButterfly = 0;
+    private String bedsteResultatCrawlDato = "Intet";
+    private String bedsteResultatRygCrawlDato = "Intet";
+    private String bedsteResultatBrystSvømningDato = "Intet";
+    private String bedsteResultatButterflyDato = "Intet";
+
     FileHandler fh;
+
 
     public Svømmer(String navn, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
         this.navn = navn;
@@ -23,11 +33,97 @@ public class Svømmer {
 
     }
 
+    public Svømmer(String navn, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDatoytr) {
+        this.navn = navn;
+        this.aldersGruppe = aldersGruppe;
+        this.erAktiv = erAktiv;
+        this.adresse = adresse;
+        this.alder = alder;
+        this.emailAdresse = emailAdresse;
+        this.telefonNummer = telefonNummer;
+        this.svømmeDisciplin = svømmeDisciplin;
+        this.bedsteResultatCrawl = bedsteResultatCrawl;
+        this.bedsteResultatRygCrawl = bedsteResultatRygCrawl;
+        this.bedsteResultatBrystSvømning = bedsteResultatBrystSvømning;
+        this.bedsteResultatButterfly = bedsteResultatButterfly;
+        this.bedsteResultatCrawlDato = bedsteResultatCrawlDato;
+        this.bedsteResultatRygCrawlDato = bedsteResultatRygCrawlDato;
+        this.bedsteResultatBrystSvømningDato = bedsteResultatBrystSvømningDato;
+        this.bedsteResultatButterflyDato = bedsteResultatButterflyDato;
+
+    }
+
     public Svømmer() {
         fh = new FileHandler();
     }
 
     private ArrayList<Svømmer> medlemmer = new ArrayList<Svømmer>();
+
+    public int getBedsteResultatCrawl() {
+        return bedsteResultatCrawl;
+    }
+
+    public void setBedsteResultatCrawl(int bedsteResultatCrawl) {
+        this.bedsteResultatCrawl = bedsteResultatCrawl;
+    }
+
+    public int getBedsteResultatRygCrawl() {
+        return bedsteResultatRygCrawl;
+    }
+
+    public void setBedsteResultatRygCrawl(int bedsteResultatRygCrawl) {
+        this.bedsteResultatRygCrawl = bedsteResultatRygCrawl;
+    }
+
+    public int getBedsteResultatBrystSvømning() {
+        return bedsteResultatBrystSvømning;
+    }
+
+    public void setBedsteResultatBrystSvømning(int bedsteResultatBrystSvømning) {
+        this.bedsteResultatBrystSvømning = bedsteResultatBrystSvømning;
+    }
+
+    public int getBedsteResultatButterfly() {
+        return bedsteResultatButterfly;
+    }
+
+    public void setBedsteResultatButterfly(int bedsteResultatButterfly) {
+        this.bedsteResultatButterfly = bedsteResultatButterfly;
+    }
+
+    public String getBedsteResultatCrawlDato() {
+        return bedsteResultatCrawlDato;
+    }
+
+    public void setBedsteResultatCrawlDato(String bedsteResultatCrawlDato) {
+        this.bedsteResultatCrawlDato = bedsteResultatCrawlDato;
+    }
+
+    public String getBedsteResultatRygCrawlDato() {
+        return bedsteResultatRygCrawlDato;
+    }
+
+    public void setBedsteResultatRygCrawlDato(String bedsteResultatRygCrawlDato) {
+        this.bedsteResultatRygCrawlDato = bedsteResultatRygCrawlDato;
+    }
+
+    public String getBedsteResultatBrystSvømningDato() {
+        return bedsteResultatBrystSvømningDato;
+    }
+
+    public void setBedsteResultatBrystSvømningDato(String bedsteResultatBrystSvømningDato) {
+        this.bedsteResultatBrystSvømningDato = bedsteResultatBrystSvømningDato;
+    }
+
+    public String getBedsteResultatButterflyDato() {
+        return bedsteResultatButterflyDato;
+    }
+
+    public void setBedsteResultatButterflyDato(String bedsteResultatButterflyDato) {
+        this.bedsteResultatButterflyDato = bedsteResultatButterflyDato;
+    }
+
+
 
     public void gemSvømmere(ArrayList medlemmer) {
         fh.gemSvømmere(medlemmer);

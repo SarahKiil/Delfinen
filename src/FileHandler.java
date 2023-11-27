@@ -63,7 +63,12 @@ public class FileHandler {
             int alder = Integer.parseInt(attributter[3]);
 
             int telefonNummer = Integer.parseInt(attributter[6]);
-            a.add(new Svømmer(attributter[0], attributter[1], erAktiv, alder, attributter[4], attributter[5], telefonNummer, attributter[7]));
+            int crawl = Integer.parseInt(attributter[8]);
+            int rygCrawl = Integer.parseInt(attributter[9]);
+            int brystSvømning = Integer.parseInt(attributter[10]);
+            int butterfly = Integer.parseInt(attributter[11]);
+            a.add(new Svømmer(attributter[0], attributter[1], erAktiv, alder, attributter[4], attributter[5], telefonNummer, attributter[7], crawl, rygCrawl, brystSvømning, butterfly, attributter[12], attributter[13], attributter[14], attributter[15]));
+
         }
 
     }
