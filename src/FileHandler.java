@@ -20,6 +20,8 @@ public class FileHandler {
         for (Svømmer s : a) {
             output.println(s.getNavn().replace(' ', '@') + "," +
                     s.getAldersGruppe().replace(' ', '@') + "," +
+                    s.isErAktiv() + "," +
+                    s.getAlder() + "," +
                     s.getAdresse().replace(' ', '@') + "," +
                     s.getEmailAdresse().replace(' ', '@') + "," +
                     s.getTelefonNummer()+"," +s.getSvømmeDisciplin());

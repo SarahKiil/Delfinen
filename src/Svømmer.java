@@ -144,16 +144,14 @@ public class Svømmer {
 
     @Override
     public String toString() {
-        return "Svømmer{" +
-                "navn='" + navn + '\'' +
-                ", aldersGruppe='" + aldersGruppe + '\'' +
-                ", erAktiv=" + erAktiv +
-                ", alder=" + alder +
-                ", adresse='" + adresse + '\'' +
-                ", emailAdresse='" + emailAdresse + '\'' +
-                ", telefonNummer=" + telefonNummer +
-                ", medlemmer=" + medlemmer +
-                '}';
+        return "Svømmerens " +
+                "navn: " + navn + '\'' +
+                ", aldersgruppen svømmeren tilhører: " + aldersGruppe + '\'' +
+                ", er medlemmet aktivt? " + erAktiv +
+                ", medlemmets alder: " + alder +
+                ", medlemmets adresse: " + adresse + '\'' +
+                ", medlemmets emailadresse: " + emailAdresse + '\'' +
+                ", telefonnummer: " + telefonNummer;
     }
 
 
