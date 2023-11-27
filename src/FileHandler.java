@@ -24,7 +24,17 @@ public class FileHandler {
                     s.getAlder() + "," +
                     s.getAdresse().replace(' ', '@') + "," +
                     s.getEmailAdresse().replace(' ', '@') + "," +
-                    s.getTelefonNummer()+"," +s.getSvømmeDisciplin());
+                    s.getTelefonNummer()+"," +s.getSvømmeDisciplin() + "," +
+                    s.getBedsteResultatCrawl() + "," +
+                            s.getBedsteResultatRygCrawl() + "," +
+                    s.getBedsteResultatBrystSvømning() + "," +
+                    s.getBedsteResultatButterfly() + "," +
+                    s.getBedsteResultatCrawlDato() + "," +
+                    s.getBedsteResultatRygCrawlDato() + "," +
+                    s.getBedsteResultatBrystSvømningDato() + "," +
+                    s.getBedsteResultatButterflyDato()
+
+                    );
         }
         output.close();
     }
