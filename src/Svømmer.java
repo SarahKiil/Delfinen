@@ -42,8 +42,8 @@ public class Svømmer {
         this.idNummer = idNummer;
         this.aldersGruppe = aldersGruppe;
         this.erAktiv = erAktiv;
-        this.adresse = adresse;
         this.alder = alder;
+        this.adresse = adresse;
         this.emailAdresse = emailAdresse;
         this.telefonNummer = telefonNummer;
         this.svømmeDisciplin = svømmeDisciplin;

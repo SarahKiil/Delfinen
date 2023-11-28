@@ -77,13 +77,21 @@ public class FileHandler {
             int idNummer = Integer.parseInt(attributter[1]);
 
             Date dagsDato = new Date();
-            Date alder = new Date((alderIÅrstal-1900)+(alderIMåneder-1)+alderIDage);
-            long forskelIÅr = Math.abs(dagsDato.getYear()-alder.getYear());
+            Date alder = new Date(alderIÅrstal,alderIMåneder,alderIDage);
+            int forskelIÅr = (dagsDato.getYear()+1900)-alder.getYear();
             String aldersGruppe = "Junior";
-            if (forskelIÅr > 17) {
+            if (forskelIÅr > 19) {
                 aldersGruppe = "Senior";
             }
-            a.add(new Svømmer(attributter[0], idNummer, attributter[2], erAktiv, alder, attributter[7], attributter[8], telefonNummer, attributter[9], crawl, rygCrawl, brystSvømning, butterfly, attributter[15], attributter[16], attributter[17], attributter[18]));
+            if (forskelIÅr == 18 && (dagsDato.getMonth()+1) < alder.getMonth()) {
+                aldersGruppe = "Senior";
+            }
+            if (forskelIÅr == 18 && (dagsDato.getMonth()+1) < alder.getMonth() && dagsDato.getDate() <= alder.getDate()) {
+                aldersGruppe = "Senior";
+            }
+
+
+            a.add(new Svømmer(attributter[0], idNummer, aldersGruppe, erAktiv, alder, attributter[7], attributter[8], telefonNummer, attributter[10], crawl, rygCrawl, brystSvømning, butterfly, attributter[15], attributter[16], attributter[17], attributter[18]));
 
         }
 
