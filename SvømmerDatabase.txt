@@ -1,3 +1,1 @@
-Bobby,3631920,Senior,true,30,sejvej,mailmail,123,crawl,0,0,0,0,Intet,Intet,Intet,Intet
-Johnny,654512,Senior,true,20,vej vejen,mailadresse,12345,crawl,0,0,0,0,Intet,Intet,Intet,Intet
-Mandeman,9845569,Senior,true,123,vejvej,mail,12345678,butterfly,0,0,0,0,Intet,Intet,Intet,Intet
+qwe,5564990,Senior,true,1990,10,1,asd,asd,123,asd,0,0,0,0,Intet,Intet,Intet,Intet

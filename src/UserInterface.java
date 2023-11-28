@@ -1,4 +1,10 @@
+import java.time.Period;
 import java.util.Scanner;
+import java.util.Date;
+import java.time.LocalDate;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class UserInterface {
     private boolean ændret = false;
@@ -54,6 +60,7 @@ public class UserInterface {
     }
 
     private void gemSvømmere() {
+        System.out.println("Dine ændringer er nu gemt!");
         controller.gemSvømmmere();
         menu();
     }
@@ -289,26 +296,57 @@ public class UserInterface {
 
     private void tilføjSvømmer() {
         System.out.println("Hvad er navnet på svømmeren?");
-        String navn = keyboard.next();
-        System.out.println("Hvad er alderen på svømmeren?");
-        int alder = keyboard.nextInt();
+        String navn = keyboard.nextLine();
+        keyboard.nextLine();
+        System.out.println("Hvilket årstal er medlemmer født?");
+        if (!keyboard.hasNextInt()) {
+            String text = keyboard.next();
+            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+            tilføjSvømmer();
+        }
+        int alderÅrstal = keyboard.nextInt();
+        System.out.println("Hvilken måned er medlemmet født (i tal)?");
+        if (!keyboard.hasNextInt()) {
+            String text = keyboard.next();
+            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+            tilføjSvømmer();
+        }
+        int alderMåned = keyboard.nextInt();
+        System.out.println("Hvilken dag i måneden er medlemmet født?");
+        if (!keyboard.hasNextInt()) {
+            String text = keyboard.next();
+            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+            tilføjSvømmer();
+        }
+        int alderDag = keyboard.nextInt();
         System.out.println("Hvad er svømmerens adresse?");
         keyboard.nextLine();
         String adresse = keyboard.nextLine();
         System.out.println("Hvad er svømmerens emailadresse?");
         String emailAdresse = keyboard.nextLine();
         System.out.println("Hvad er svømmerens telefonnummer?");
+        if (!keyboard.hasNextInt()) {
+            String text = keyboard.next();
+            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+            tilføjSvømmer();
+        }
         int telefonNummer = keyboard.nextInt();
         System.out.println("Hvad er svømmerens svømmedesciplin?");
         String svømmeDisciplin = keyboard.next();
         keyboard.nextLine();
 
-        String aldersGruppe = "Junior";
-        if (alder > 17) {
-            aldersGruppe = "Senior";
-        }
+
+
 
         int idNummer = controller.skabIDNummer();
+        Date dagsDato = new Date();
+        //Date alder = new Date((alderÅrstal-1900)+(alderMåned-1)+alderDag);
+        Date alder = new Date(alderÅrstal,alderMåned,alderDag);
+        long forskelIÅr = Math.abs(dagsDato.getYear()-alder.getYear());
+        String aldersGruppe = "Junior";
+        if (forskelIÅr > 17) {
+            aldersGruppe = "Senior";
+        }
 
         controller.tilføjSvømmer(navn, idNummer, aldersGruppe, true, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
         controller.gemSvømmmere();
@@ -334,6 +372,7 @@ public class UserInterface {
         if (!keyboard.hasNextInt()) {
             String text = keyboard.next();
             System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+            søgPåEnSvømmer();
         }
         char søgeValg = keyboard.next().charAt(0);
         if (søgeValg == '2'){
@@ -398,6 +437,7 @@ public class UserInterface {
         if (!keyboard.hasNextInt()) {
             String text = keyboard.next();
             System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+            redigerEtMedlem();
         }
 
         char redigerMedlem = keyboard.next().charAt(0);
@@ -405,8 +445,6 @@ public class UserInterface {
             case '1':
                 redigerNavn(bestemtSøgeNavn);
             case '2':
-                redigerAlder(bestemtSøgeNavn);
-            case '3':
                 redigerAktivitetsStatus(bestemtSøgeNavn);
             case '4':
                 redigerAdresse(bestemtSøgeNavn);
@@ -435,22 +473,6 @@ public class UserInterface {
         menu();
     }
 
-    private void redigerAlder(String bestemtSøgeNavn) {
-        System.out.println("Hvad vil du ændre alderen til?");
-        if (!keyboard.hasNextInt()) {
-            String text = keyboard.next();
-            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
-        }
-        int nyAlder = keyboard.nextInt();
-        controller.redigerAlder(bestemtSøgeNavn, nyAlder);
-        System.out.println("Alderen er ændret!");
-        System.out.println(controller.visMedlem(bestemtSøgeNavn));
-
-        ændret = true;
-        System.out.println("Tryk på enter for at gå tilbage til menuen.");
-        keyboard.nextLine();
-        menu();
-    }
 
     private void redigerAdresse(String bestemtSøgeNavn) {
         System.out.println("Hvad vil du ændre adressen til?");
@@ -512,7 +534,7 @@ public class UserInterface {
             redigerTelefonnummer(bestemtSøgeNavn);
         }
         int nytTelefonnummer = keyboard.nextInt();
-        controller.redigerAlder(bestemtSøgeNavn, nytTelefonnummer);
+        controller.redigerTelefonnummer(bestemtSøgeNavn, nytTelefonnummer);
         System.out.println("Telefonnummeret er ændret!");
         System.out.println(controller.visMedlem(bestemtSøgeNavn));
 

@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Date;
 
 public class Svømmer {
     private String navn;
     private int idNummer;
     private String aldersGruppe;
     private boolean erAktiv;
-    private int alder;
+    private Date alder;
     private String adresse;
     private String emailAdresse;
     private int telefonNummer;
@@ -23,7 +24,7 @@ public class Svømmer {
     FileHandler fh;
 
 
-    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
+    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
         this.navn = navn;
         this.idNummer = idNummer;
         this.aldersGruppe = aldersGruppe;
@@ -36,7 +37,7 @@ public class Svømmer {
 
     }
 
-    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDatoytr) {
+    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDatoytr) {
         this.navn = navn;
         this.idNummer = idNummer;
         this.aldersGruppe = aldersGruppe;
@@ -63,6 +64,17 @@ public class Svømmer {
 
     private ArrayList<Svømmer> medlemmer = new ArrayList<Svømmer>();
 
+    public int getAlderIÅrstal(){
+        return alder.getYear();
+    }
+
+    public int getAlderIMåneder(){
+        return alder.getMonth();
+    }
+
+    public int getAlderIDage(){
+        return alder.getDate();
+    }
     public int getBedsteResultatCrawl() {
         return bedsteResultatCrawl;
     }
@@ -197,11 +209,11 @@ public class Svømmer {
         this.erAktiv = erAktiv;
     }
 
-    public int getAlder() {
+    public Date getAlder() {
         return alder;
     }
 
-    public void setAlder(int alder) {
+    public void setAlder(Date alder) {
         this.alder = alder;
     }
 
@@ -264,7 +276,8 @@ public class Svømmer {
                 " ID: " + idNummer + '\'' +
                 ", aldersgruppen svømmeren tilhører: " + aldersGruppe + '\'' +
                 ", er medlemmet aktivt? " + erAktiv +
-                ", medlemmets alder: " + alder +
+
+                ", medlemmets fødselsdagsdato: " + getAlderIDage() + ". " + getAlderIMåneder() + ". " + getAlderIÅrstal() +
                 ", medlemmets adresse: " + adresse + '\'' +
                 ", medlemmets emailadresse: " + emailAdresse + '\'' +
                 ", telefonnummer: " + telefonNummer;
@@ -275,7 +288,7 @@ public class Svømmer {
         medlemmer.add(new Svømmer(navn, idNummer, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin));
     }
 
-    public void redigerAlder(String bestemtSøgeNavn, int nyAlder) {
+    /*public void redigerAlder(String bestemtSøgeNavn, int nyAlder) {
         for (Svømmer s : medlemmer) {
             if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
                 s.setAlder(nyAlder);
@@ -284,7 +297,7 @@ public class Svømmer {
                 s.setAldersGruppe("Senior");
             }
         }
-    }
+    }*/
 
     public void redigerAdresse(String bestemtSøgeNavn, String nyAdresse) {
         for (Svømmer s : medlemmer) {

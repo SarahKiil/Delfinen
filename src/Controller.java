@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Controller {
 
@@ -9,7 +10,7 @@ public class Controller {
 
     }
 
-    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, int alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
+    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
         sv.tilføjSvømmer(navn, idNummer, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
     }
 
@@ -37,14 +38,26 @@ public class Controller {
         return sv.visMedlemID(søgeID);
     }
 
+    public int getAlderIÅrstal(){
+        return sv.getAlderIÅrstal();
+    }
+
+    public int getAlderIMåneder(){
+        return sv.getAlderIMåneder();
+    }
+
+    public int getAlderIDage(){
+        return sv.getAlderIDage();
+    }
+
 
     public void ændreNavn(String bestemtSøgeNavn, String nytNavn) {
         sv.ændreNavn(bestemtSøgeNavn, nytNavn);
     }
 
-    public void redigerAlder(String bestemtSøgeNavn, int nyAlder) {
+    /*public void redigerAlder(String bestemtSøgeNavn, int nyAlder) {
         sv.redigerAlder(bestemtSøgeNavn, nyAlder);
-    }
+    }*/
 
     public void redigerAdresse(String bestemtSøgeNavn, String nyAdresse) {
         sv.redigerAdresse(bestemtSøgeNavn, nyAdresse);
