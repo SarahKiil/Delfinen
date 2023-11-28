@@ -427,12 +427,11 @@ public class UserInterface {
         }
         System.out.println("Hvad vil du ændre?");
         System.out.println("1. Medlemmets navn");
-        System.out.println("2. Medlemmets alder");
-        System.out.println("3. Medlemmets aktivitetsstatus");
-        System.out.println("4. Medlemmets adresse");
-        System.out.println("5. Medlemmets emailadresse");
-        System.out.println("6. Medlemmets telefonnummer");
-        System.out.println("7. Medlemmets svømmedisciplin");
+        System.out.println("2. Medlemmets aktivitetsstatus");
+        System.out.println("3. Medlemmets adresse");
+        System.out.println("4. Medlemmets emailadresse");
+        System.out.println("5. Medlemmets telefonnummer");
+        System.out.println("6. Medlemmets svømmedisciplin");
 
         if (!keyboard.hasNextInt()) {
             String text = keyboard.next();
