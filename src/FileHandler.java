@@ -23,7 +23,9 @@ public class FileHandler {
                     s.getIDNummer() + "," +
                     s.getAldersGruppe() + "," +
                     s.isErAktiv() + "," +
-                    s.getAlder() + "," +
+                    s.getAlderIÅrstal() + "," +
+                    s.getAlderIMåneder() + "," +
+                    s.getAlderIDage() + "," +
                     s.getAdresse() + "," +
                     s.getEmailAdresse() + "," +
                     s.getTelefonNummer()+"," +s.getSvømmeDisciplin() + "," +
