@@ -108,10 +108,12 @@ public class UserInterface {
                     System.out.println("Svømmer har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
+                    keyboard.nextLine();
                     menu();
                 }
                 System.out.println(bestemtSøgeNavn + " bedste resultat i crawl er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawl() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawlDato());
                 System.out.println("Tryk på enter for at gå tilbage til menuen.");
+                keyboard.nextLine();
                 keyboard.nextLine();
                 menu();
             case '2':
@@ -119,10 +121,12 @@ public class UserInterface {
                     System.out.println("Svømmer har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
+                    keyboard.nextLine();
                     menu();
                 }
                 System.out.println(bestemtSøgeNavn + " bedste resultat i rygcrawl er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatRygCrawl() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatRygCrawlDato());
                 System.out.println("Tryk på enter for at gå tilbage til menuen.");
+                keyboard.nextLine();
                 keyboard.nextLine();
                 menu();
             case '3':
@@ -130,10 +134,12 @@ public class UserInterface {
                     System.out.println("Svømmer har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
+                    keyboard.nextLine();
                     menu();
                 }
                 System.out.println(bestemtSøgeNavn + " bedste resultat i brystsvømning er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatBrystSvømning() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatBrystSvømningDato());
                 System.out.println("Tryk på enter for at gå tilbage til menuen.");
+                keyboard.nextLine();
                 keyboard.nextLine();
                 menu();
             case '4':
@@ -141,10 +147,12 @@ public class UserInterface {
                     System.out.println("Svømmer har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
+                    keyboard.nextLine();
                     menu();
                 }
                 System.out.println(bestemtSøgeNavn + " bedste resultat i butterfly er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatButterfly() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatButterflyDato());
                 System.out.println("Tryk på enter for at gå tilbage til menuen.");
+                keyboard.nextLine();
                 keyboard.nextLine();
                 menu();
             case '5':
@@ -158,7 +166,7 @@ public class UserInterface {
             System.out.println("Der er ingen medlemmer i systemet.");
             menu();
         }
-        System.out.println("Søg efter et medlem du vil se resultater for:");
+        System.out.println("Søg efter et medlem du vil ændre resultaterne for for:");
         String søgeNavn = keyboard.next();
 
         if (controller.søgMedlem(søgeNavn) == null) {
@@ -166,8 +174,9 @@ public class UserInterface {
             menu();
         }
         System.out.println("Matchende medlemmer fundet: " + controller.søgMedlem(søgeNavn));
-        System.out.println("Skriv navnet på det medlem, du vil se resultater for:");
-        String bestemtSøgeNavn = keyboard.next();
+        System.out.println("Skriv navnet på det medlem, du vil se resultaterne for:");
+        keyboard.nextLine();
+        String bestemtSøgeNavn = keyboard.nextLine();
         System.out.println(controller.visMedlem(bestemtSøgeNavn));
         if (controller.visMedlem(bestemtSøgeNavn) == null) {
             System.out.println("Medlemmet kunne ikke findes.");
@@ -215,7 +224,7 @@ public class UserInterface {
         switch (brugerValg) {
             case '1':
                 if (svømmerCrawl){
-                    System.out.println("Hvad er det nye svømmeresultat i crawl? ");
+                    System.out.println("Hvad er det nye svømmeresultat i crawl(i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
                     controller.visMedlem(bestemtSøgeNavn).setBedsteResultatCrawl(nytResultat);
                     System.out.println("Hvad er datoen for det nye resultat? (d/m/å)");
@@ -231,7 +240,7 @@ public class UserInterface {
                     menu(); }
             case '2':
                 if (svømmerRygCrawl){
-                    System.out.println("Hvad er det nye svømmeresultat i crawl? ");
+                    System.out.println("Hvad er det nye svømmeresultat i rygcrawl(i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
                     controller.visMedlem(bestemtSøgeNavn).setBedsteResultatRygCrawl(nytResultat);
                     System.out.println("Hvad er datoen for det nye resultat? (d/m/å)");
@@ -248,7 +257,7 @@ public class UserInterface {
                 }
             case '3':
                 if (svømmerBrystsvømning){
-                    System.out.println("Hvad er det nye svømmeresultat i brystsvømning? ");
+                    System.out.println("Hvad er det nye svømmeresultat i brystsvømning(i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
                     controller.visMedlem(bestemtSøgeNavn).setBedsteResultatBrystSvømning(nytResultat);
                     System.out.println("Hvad er datoen for det nye resultat? (d/m/å)");
@@ -264,7 +273,7 @@ public class UserInterface {
                     menu(); }
             case '4':
                 if (svømmerButterfly){
-                    System.out.println("Hvad er det nye svømmeresultat i crawl? ");
+                    System.out.println("Hvad er det nye svømmeresultat i butterfly(i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
                     controller.visMedlem(bestemtSøgeNavn).setBedsteResultatButterfly(nytResultat);
                     System.out.println("Hvad er datoen for det nye resultat? (d/m/å)");
@@ -296,8 +305,9 @@ public class UserInterface {
 
     private void tilføjSvømmer() {
         System.out.println("Hvad er navnet på svømmeren?");
-        String navn = keyboard.nextLine();
         keyboard.nextLine();
+        String navn = keyboard.nextLine();
+
         System.out.println("Hvilket årstal er medlemmer født?");
         if (!keyboard.hasNextInt()) {
             String text = keyboard.next();
@@ -339,12 +349,19 @@ public class UserInterface {
 
 
         int idNummer = controller.skabIDNummer();
+
+
         Date dagsDato = new Date();
-        //Date alder = new Date((alderÅrstal-1900)+(alderMåned-1)+alderDag);
         Date alder = new Date(alderÅrstal,alderMåned,alderDag);
-        long forskelIÅr = Math.abs(dagsDato.getYear()-alder.getYear());
+        int forskelIÅr = (dagsDato.getYear()+1900)-alder.getYear();
         String aldersGruppe = "Junior";
-        if (forskelIÅr > 17) {
+        if (forskelIÅr > 19) {
+            aldersGruppe = "Senior";
+        }
+        if (forskelIÅr == 18 && (dagsDato.getMonth()+1) < alder.getMonth()) {
+            aldersGruppe = "Senior";
+        }
+        if (forskelIÅr == 18 && (dagsDato.getMonth()+1) < alder.getMonth() && dagsDato.getDate() <= alder.getDate()) {
             aldersGruppe = "Senior";
         }
 
@@ -445,13 +462,13 @@ public class UserInterface {
                 redigerNavn(bestemtSøgeNavn);
             case '2':
                 redigerAktivitetsStatus(bestemtSøgeNavn);
-            case '4':
+            case '3':
                 redigerAdresse(bestemtSøgeNavn);
-            case '5':
+            case '4':
                 redigerEmailAdresse(bestemtSøgeNavn);
-            case '6':
+            case '5':
                 redigerTelefonnummer(bestemtSøgeNavn);
-            case '7':
+            case '6':
                 redigerSvømmeDisciplin(bestemtSøgeNavn);
         }
         redigerEtMedlem();
@@ -526,7 +543,6 @@ public class UserInterface {
 
     private void redigerTelefonnummer(String bestemtSøgeNavn) {
         System.out.println("Hvad vil du ændre telefonnummeret til?");
-        keyboard.nextInt();
         if (!keyboard.hasNextInt()) {
             String text = keyboard.next();
             System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
@@ -539,6 +555,7 @@ public class UserInterface {
 
         ændret = true;
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
+        keyboard.nextLine();
         keyboard.nextLine();
         menu();
 

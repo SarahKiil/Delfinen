@@ -37,7 +37,7 @@ public class Svømmer {
 
     }
 
-    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDatoytr) {
+    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDato) {
         this.navn = navn;
         this.idNummer = idNummer;
         this.aldersGruppe = aldersGruppe;
@@ -288,16 +288,6 @@ public class Svømmer {
         medlemmer.add(new Svømmer(navn, idNummer, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin));
     }
 
-    /*public void redigerAlder(String bestemtSøgeNavn, int nyAlder) {
-        for (Svømmer s : medlemmer) {
-            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
-                s.setAlder(nyAlder);
-            }
-            if (nyAlder == 18){
-                s.setAldersGruppe("Senior");
-            }
-        }
-    }*/
 
     public void redigerAdresse(String bestemtSøgeNavn, String nyAdresse) {
         for (Svømmer s : medlemmer) {
