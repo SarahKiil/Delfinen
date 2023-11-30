@@ -1,3 +1,7 @@
+package domain;
+
+import data.FileHandler;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Date;

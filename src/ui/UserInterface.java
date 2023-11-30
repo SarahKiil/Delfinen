@@ -1,10 +1,10 @@
-import java.time.Period;
+package ui;
+
+import domain.Controller;
+import domain.Svømmer;
+
 import java.util.Scanner;
 import java.util.Date;
-import java.time.LocalDate;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 
 public class UserInterface {
     private boolean ændret = false;
@@ -13,9 +13,9 @@ public class UserInterface {
     Scanner keyboard = new Scanner(System.in);
 
     public void startProgram() {
-        UserInterface m = new UserInterface();
-        m.controller = new Controller();
-        m.loadSvømmere();
+        //ui.UserInterface m = new ui.UserInterface();
+        controller = new Controller();
+        loadSvømmere();
     }
 
     private void loadSvømmere() {
@@ -24,6 +24,9 @@ public class UserInterface {
     }
 
     private void menu() {
+        // TODO etabler løkke i stedet for at kalde menu()
+        // TODO slet alle kald-til-menu metoder
+        // TODO lav hold lister
         System.out.println("Delfinens digitale administrative system. Tryk på et tal for at vælge et menupunkt:");
         System.out.println("1. Opret et nyt medlem.");
         System.out.println("2. Vis registrede medlemmer.");
@@ -105,7 +108,7 @@ public class UserInterface {
         switch (brugerValg) {
             case '1':
                 if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawl()==0){
-                    System.out.println("Svømmer har ingen resultater for denne disciplin");
+                    System.out.println("domain.Svømmer har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
                     keyboard.nextLine();
@@ -118,7 +121,7 @@ public class UserInterface {
                 menu();
             case '2':
                 if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatRygCrawl()==0){
-                    System.out.println("Svømmer har ingen resultater for denne disciplin");
+                    System.out.println("domain.Svømmer har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
                     keyboard.nextLine();
@@ -131,7 +134,7 @@ public class UserInterface {
                 menu();
             case '3':
                 if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatBrystSvømning()==0){
-                    System.out.println("Svømmer har ingen resultater for denne disciplin");
+                    System.out.println("domain.Svømmer har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
                     keyboard.nextLine();
@@ -144,7 +147,7 @@ public class UserInterface {
                 menu();
             case '4':
                 if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatButterfly()==0){
-                    System.out.println("Svømmer har ingen resultater for denne disciplin");
+                    System.out.println("domain.Svømmer har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
                     keyboard.nextLine();
