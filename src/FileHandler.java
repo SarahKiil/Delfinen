@@ -28,7 +28,8 @@ public class FileHandler {
                     s.getAlderIDage() + "," +
                     s.getAdresse() + "," +
                     s.getEmailAdresse() + "," +
-                    s.getTelefonNummer()+"," +s.getSvømmeDisciplin() + "," +
+                    s.getTelefonNummer()+"," +
+                            s.getSvømmeDisciplin() + "," +
                     s.getBedsteResultatCrawl() + "," +
                             s.getBedsteResultatRygCrawl() + "," +
                     s.getBedsteResultatBrystSvømning() + "," +

@@ -226,7 +226,15 @@ public class UserInterface {
                 if (svømmerCrawl){
                     System.out.println("Hvad er det nye svømmeresultat i crawl(i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
-                    controller.visMedlem(bestemtSøgeNavn).setBedsteResultatCrawl(nytResultat);
+                    System.out.println("Er det nye resultat fra en træning eller en konkurrence?");
+                    System.out.println("1. Konkurrence.");
+                    System.out.println("2. Træning.");
+                    char konkurrenceValg = keyboard.next().charAt(0);
+                    if (konkurrenceValg == '1'){
+                    controller.visMedlem(bestemtSøgeNavn).setBedsteResultatCrawl(nytResultat);}
+                    if (konkurrenceValg == '2' && nytResultat<controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawl()){
+                        controller.visMedlem(bestemtSøgeNavn).setBedsteResultatCrawl(nytResultat);
+                    }
                     System.out.println("Hvad er datoen for det nye resultat? (d/m/å)");
                     String nytResultatDato = keyboard.next();
                     controller.visMedlem(bestemtSøgeNavn).setBedsteResultatCrawlDato(nytResultatDato);
@@ -242,7 +250,15 @@ public class UserInterface {
                 if (svømmerRygCrawl){
                     System.out.println("Hvad er det nye svømmeresultat i rygcrawl(i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
-                    controller.visMedlem(bestemtSøgeNavn).setBedsteResultatRygCrawl(nytResultat);
+                    System.out.println("Er det nye resultat fra en træning eller en konkurrence?");
+                    System.out.println("1. Konkurrence.");
+                    System.out.println("2. Træning.");
+                    char konkurrenceValg = keyboard.next().charAt(0);
+                    if (konkurrenceValg == '1'){
+                        controller.visMedlem(bestemtSøgeNavn).setBedsteResultatRygCrawl(nytResultat);}
+                    if (konkurrenceValg == '2' && nytResultat<controller.visMedlem(bestemtSøgeNavn).getBedsteResultatRygCrawl()){
+                        controller.visMedlem(bestemtSøgeNavn).setBedsteResultatRygCrawl(nytResultat);
+                    };
                     System.out.println("Hvad er datoen for det nye resultat? (d/m/å)");
                     String nytResultatDato = keyboard.next();
                     controller.visMedlem(bestemtSøgeNavn).setBedsteResultatRygCrawlDato(nytResultatDato);
@@ -259,7 +275,15 @@ public class UserInterface {
                 if (svømmerBrystsvømning){
                     System.out.println("Hvad er det nye svømmeresultat i brystsvømning(i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
-                    controller.visMedlem(bestemtSøgeNavn).setBedsteResultatBrystSvømning(nytResultat);
+                    System.out.println("Er det nye resultat fra en træning eller en konkurrence?");
+                    System.out.println("1. Konkurrence.");
+                    System.out.println("2. Træning.");
+                    char konkurrenceValg = keyboard.next().charAt(0);
+                    if (konkurrenceValg == '1'){
+                        controller.visMedlem(bestemtSøgeNavn).setBedsteResultatBrystSvømning(nytResultat);}
+                    if (konkurrenceValg == '2' && nytResultat<controller.visMedlem(bestemtSøgeNavn).getBedsteResultatBrystSvømning()){
+                        controller.visMedlem(bestemtSøgeNavn).setBedsteResultatBrystSvømning(nytResultat);
+                    }
                     System.out.println("Hvad er datoen for det nye resultat? (d/m/å)");
                     String nytResultatDato = keyboard.next();
                     controller.visMedlem(bestemtSøgeNavn).setBedsteResultatBrystSvømningDato(nytResultatDato);
@@ -275,7 +299,15 @@ public class UserInterface {
                 if (svømmerButterfly){
                     System.out.println("Hvad er det nye svømmeresultat i butterfly(i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
-                    controller.visMedlem(bestemtSøgeNavn).setBedsteResultatButterfly(nytResultat);
+                    System.out.println("Er det nye resultat fra en træning eller en konkurrence?");
+                    System.out.println("1. Konkurrence.");
+                    System.out.println("2. Træning.");
+                    char konkurrenceValg = keyboard.next().charAt(0);
+                    if (konkurrenceValg == '1'){
+                        controller.visMedlem(bestemtSøgeNavn).setBedsteResultatButterfly(nytResultat);}
+                    if (konkurrenceValg == '2' && nytResultat<controller.visMedlem(bestemtSøgeNavn).getBedsteResultatButterfly()){
+                        controller.visMedlem(bestemtSøgeNavn).setBedsteResultatButterfly(nytResultat);
+                    }
                     System.out.println("Hvad er datoen for det nye resultat? (d/m/å)");
                     String nytResultatDato = keyboard.next();
                     controller.visMedlem(bestemtSøgeNavn).setBedsteResultatButterflyDato(nytResultatDato);
@@ -341,8 +373,47 @@ public class UserInterface {
             tilføjSvømmer();
         }
         int telefonNummer = keyboard.nextInt();
-        System.out.println("Hvad er svømmerens svømmedesciplin?");
-        String svømmeDisciplin = keyboard.next();
+        System.out.println("Vælg hvilke discipliner du vil tilføje ved at skrive tallene(uden at bruge enter i mellem)");
+        System.out.println("1. Crawl");
+        System.out.println("2. Rygcrawl.");
+        System.out.println("3. Butterfly");
+        System.out.println("4. Brystsvømning");
+        String svømmeDisciplin = "intet";
+        String disciplinValg = keyboard.next();
+        if (disciplinValg.contains("1")&&disciplinValg.contains("2")&&disciplinValg.contains("3")&&disciplinValg.contains("4")){
+            svømmeDisciplin = "crawl; rygcrawl; butterfly og brystsvømning";}
+        if (disciplinValg.contains("1")&&disciplinValg.contains("3")&&disciplinValg.contains("4")){
+            svømmeDisciplin = "crawl; rygcrawl; butterfly og brystsvømning";}
+        else if (disciplinValg.contains("1")&&disciplinValg.contains("2")&&disciplinValg.contains("3")){
+            svømmeDisciplin="crawl; brystsvømning og butterfly";}
+        else if (disciplinValg.contains("1")&&disciplinValg.contains("2")&&disciplinValg.contains("4")){
+            svømmeDisciplin="crawl; brystsvømning og brystsvømning";}
+        else if (disciplinValg.contains("1")&&disciplinValg.contains("3")&&disciplinValg.contains("4")){
+            svømmeDisciplin="crawl; butterfly og brystsvømning";}
+        else if (disciplinValg.contains("2")&&disciplinValg.contains("3")&&disciplinValg.contains("4")){
+            svømmeDisciplin="rygcrawl; brystsvømning og butterfly";}
+        else if (disciplinValg.contains("3")&&disciplinValg.contains("4")){
+            svømmeDisciplin = "butterfly og brystsvømning";}
+        else if(disciplinValg.contains("1")&&disciplinValg.contains("2")){
+            svømmeDisciplin = "crawl og rygcrawl";}
+        else if (disciplinValg.contains("1")&&disciplinValg.contains("3")){
+            svømmeDisciplin = "crawl og butterfly";}
+        else if (disciplinValg.contains("1")&&disciplinValg.contains("4")){
+            svømmeDisciplin="crawl og brystsvømning";}
+        else if(disciplinValg.contains("2")&&disciplinValg.contains("3")){
+            svømmeDisciplin = "rygcrawl og butterfly";}
+        else if (disciplinValg.contains("2")&&disciplinValg.contains("4")){
+            svømmeDisciplin = "rygcrawl og brystsvømning";}
+        else if (disciplinValg.contains("1")){
+            svømmeDisciplin = "crawl";}
+        else if (disciplinValg.contains("2")){
+            svømmeDisciplin = "rygcrawl";}
+        else if (disciplinValg.contains("3")){
+            svømmeDisciplin = "buttefly";}
+        else if (disciplinValg.contains("4")){
+            svømmeDisciplin = "brystsvømning";}
+
+
         keyboard.nextLine();
 
 

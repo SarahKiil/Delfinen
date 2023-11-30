@@ -1,5 +1,9 @@
-John Johnson,2416257,Senior,true,1980,10,1,vejvej,mailadresse,123456,rygcrawl,0,0,0,0,Intet,Intet,Intet,Intet
+John Johnson,2416257,Senior,true,1980,10,1,vejvej,mailadresse,123456,rygcrawl,21,0,0,0,10/10/2020,Intet,Intet,Intet
 simon sørensen,1746576,Senior,true,1995,10,15,store vej,mail@mail.com,1234,butterfly,0,0,0,0,Intet,Intet,Intet,Intet
 Jonathan Svømmer,583862,Senior,true,2000,10,15,Lille Vej,mail,1525,Butterfly,0,0,0,50,Intet,Intet,Intet,10/10/2022
 Aura Speltbolle,9208039,Junior,true,2010,1,7,vejen,mailen,12345,butterfly,0,0,0,0,Intet,Intet,Intet,Intet
 Store John,1507224,Senior,true,1950,10,10,Store Vej,mailen,12345,crawl,100,0,0,0,01/01/2020,Intet,Intet,Intet
+John Johnson,3413292,Senior,true,1990,10,10,Vejvej,mailen,12345678,crawl,0,0,0,0,Intet,Intet,Intet,Intet
+mads,9153824,Senior,true,1940,10,10,vej,mail,1234,buttefly,0,0,0,0,Intet,Intet,Intet,Intet
+john,6595263,Senior,true,13,0,12,12,12,12,rygcrawl,123123,0,0,0,123123,Intet,Intet,Intet
+testerman,7774252,Senior,true,1920,10,10,vejen,mailmail,12345678,crawl og butterfly,1000,0,0,0,52/52/51,Intet,Intet,Intet
