@@ -1,4 +1,5 @@
 package data;
+import domain.Svømmer;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,60 +1,63 @@
 package domain;
 
+import data.Database;
+
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Controller {
 
-    private Svømmer sv;
+    private Database db;
 
     public Controller() {
-        sv = new Svømmer();
+        db = new Database();
 
     }
 
     public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
-        sv.tilføjSvømmer(navn, idNummer, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
+        db.tilføjSvømmer(navn, idNummer, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
     }
 
     public ArrayList visMedlemmer() {
-        return sv.visMedlemmer();
+        return db.visMedlemmer();
     }
 
     public void gemSvømmmere() {
-        sv.gemSvømmere(sv.visMedlemmer());
+        db.gemSvømmere(db.visMedlemmer());
     }
 
     public void tilføjGemteMedlemmer() {
-        sv.tilføjGemteMedlemmer(sv.visMedlemmer());
+        db.tilføjGemteMedlemmer(db.visMedlemmer());
     }
 
     public String søgMedlem(String søgeNavn) {
-        return sv.søgMedlem(søgeNavn);
+        return db.søgMedlem(søgeNavn);
     }
 
     public Svømmer visMedlem(String bestemtSøgeNavn) {
-        return sv.visMedlem(bestemtSøgeNavn);
+        return db.visMedlem(bestemtSøgeNavn);
     }
 
     public Svømmer visMedlemID(int søgeID) {
-        return sv.visMedlemID(søgeID);
+        return db.visMedlemID(søgeID);
     }
 
-    public int getAlderIÅrstal(){
-        return sv.getAlderIÅrstal();
+    /*public int getAlderIÅrstal(){
+        return db.getAlderIÅrstal();
     }
 
     public int getAlderIMåneder(){
-        return sv.getAlderIMåneder();
-    }
+        return db.getAlderIMåneder();
+    }*/
 
-    public int getAlderIDage(){
-        return sv.getAlderIDage();
-    }
+   /* public int getAlderIDage(){
+        return db.getAlderIDage();
+    }*/
 
 
     public void ændreNavn(String bestemtSøgeNavn, String nytNavn) {
-        sv.ændreNavn(bestemtSøgeNavn, nytNavn);
+        db.ændreNavn(bestemtSøgeNavn, nytNavn);
     }
 
     /*public void redigerAlder(String bestemtSøgeNavn, int nyAlder) {
@@ -62,26 +65,26 @@ public class Controller {
     }*/
 
     public void redigerAdresse(String bestemtSøgeNavn, String nyAdresse) {
-        sv.redigerAdresse(bestemtSøgeNavn, nyAdresse);
+        db.redigerAdresse(bestemtSøgeNavn, nyAdresse);
     }
 
     public void redigerEmailAdresse(String bestemtSøgeNavn, String nyEmailAdresse) {
-        sv.redigerEmailAdresse(bestemtSøgeNavn, nyEmailAdresse);
+        db.redigerEmailAdresse(bestemtSøgeNavn, nyEmailAdresse);
     }
 
     public void redigerErAktiv(String bestemtSøgeNavn, boolean nyErAktiv) {
-        sv.redigerErAktiv(bestemtSøgeNavn, nyErAktiv);
+        db.redigerErAktiv(bestemtSøgeNavn, nyErAktiv);
     }
 
     public void redigerSvømmeDisciplin(String bestemtSøgeNavn, String nySvømmeDisciplin){
-        sv.redigerSvømmeDisciplin(bestemtSøgeNavn, nySvømmeDisciplin);
+        db.redigerSvømmeDisciplin(bestemtSøgeNavn, nySvømmeDisciplin);
     }
 
     public void redigerTelefonnummer(String bestemtSøgeNavn, int nytTelefonnummer){
-        sv.redigerTelefonnummer(bestemtSøgeNavn, nytTelefonnummer);
+        db.redigerTelefonnummer(bestemtSøgeNavn, nytTelefonnummer);
     }
 
-    public int getBedsteResultatCrawl(){
+   /* public int getBedsteResultatCrawl(){
         return sv.getBedsteResultatCrawl();
     }
 
@@ -144,10 +147,10 @@ public class Controller {
 
     public void setBedsteResultatButterflyDato(String bedsteResultatButterflyDato){
         sv.setBedsteResultatButterflyDato(bedsteResultatButterflyDato);
-    }
+    }*/
 
     public int skabIDNummer(){
-        return sv.skabIDNummer();
+        return db.skabIDNummer();
     }
 }
 

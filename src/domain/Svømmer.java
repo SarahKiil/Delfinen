@@ -25,8 +25,6 @@ public class Svømmer {
     private String bedsteResultatBrystSvømningDato = "Intet";
     private String bedsteResultatButterflyDato = "Intet";
 
-    FileHandler fh;
-
 
     public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
         this.navn = navn;
@@ -63,10 +61,9 @@ public class Svømmer {
     }
 
     public Svømmer() {
-        fh = new FileHandler();
+
     }
 
-    private ArrayList<Svømmer> medlemmer = new ArrayList<Svømmer>();
 
     public int getAlderIÅrstal(){
         return alder.getYear();
@@ -144,51 +141,6 @@ public class Svømmer {
     }
 
 
-
-    public void gemSvømmere(ArrayList medlemmer) {
-        fh.gemSvømmere(medlemmer);
-
-    }
-
-    public void tilføjGemteMedlemmer(ArrayList medlemmer) {
-        fh.addGemteMedlemmer(medlemmer);
-    }
-
-    public String søgMedlem(String søgeNavn) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Svømmer s : medlemmer) {
-            if (s.getNavn().toLowerCase().contains(søgeNavn.toLowerCase()))
-                stringBuilder.append(s.getNavn() + ". ");
-        }
-        return stringBuilder.toString();
-    }
-
-    public Svømmer visMedlem(String bestemtSøgeNavn) {
-        for (Svømmer s : medlemmer) {
-            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
-                return s;
-            }
-
-        }
-
-        return null;
-    }
-
-    public Svømmer visMedlemID(int søgeID) {
-        for (Svømmer s : medlemmer) {
-            if (s.getIDNummer() == søgeID) {
-                return s;
-            }
-
-        }
-
-        return null;
-    }
-
-    public ArrayList visMedlemmer() {
-        return medlemmer;
-    }
-
     public String getNavn() {
         return navn;
     }
@@ -253,26 +205,10 @@ public class Svømmer {
         this.svømmeDisciplin = svømmeDisciplin;
     }
 
-    public ArrayList<Svømmer> getMedlemmer() {
-        return medlemmer;
-    }
-
     public int getIDNummer(){
         return idNummer;
     }
-
-    public void ændreNavn(String bestemtSøgeNavn, String nytNavn) {
-        for (Svømmer s : medlemmer) {
-            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
-                s.setNavn(nytNavn);
-            }
-        }
-    }
-
-    public void setMedlemmer(ArrayList<Svømmer> medlemmer) {
-        this.medlemmer = medlemmer;
-    }
-
+    
     @Override
     public String toString() {
         return "Svømmerens " +
@@ -286,60 +222,5 @@ public class Svømmer {
                 ", medlemmets emailadresse: " + emailAdresse + '\'' +
                 ", telefonnummer: " + telefonNummer;
     }
-
-
-    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
-        medlemmer.add(new Svømmer(navn, idNummer, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin));
-    }
-
-
-    public void redigerAdresse(String bestemtSøgeNavn, String nyAdresse) {
-        for (Svømmer s : medlemmer) {
-            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
-                s.setAdresse(nyAdresse);
-            }
-        }
-    }
-
-    public void redigerErAktiv(String bestemtSøgeNavn, boolean nyErAktiv) {
-        for (Svømmer s : medlemmer) {
-            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
-                s.setErAktiv(nyErAktiv);
-            }
-        }
-    }
-
-    public void redigerEmailAdresse(String bestemtSøgeNavn, String nyEmailAdresse) {
-        for (Svømmer s : medlemmer) {
-            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
-                s.setEmailAdresse(nyEmailAdresse);
-            }
-        }
-    }
-
-    public void redigerSvømmeDisciplin(String bestemtSøgeNavn, String nySvømmeDisciplin) {
-        for (Svømmer s : medlemmer) {
-            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
-                s.setSvømmeDisciplin(nySvømmeDisciplin);
-            }
-        }
-    }
-
-    public void redigerTelefonnummer(String bestemtSøgeNavn, int nytTelefonnummer) {
-        for (Svømmer s : medlemmer) {
-            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
-                s.setTelefonNummer(nytTelefonnummer);
-            }
-        }
-    }
-
-    public int skabIDNummer() {
-        Random random = new Random();
-        int nytIDNummer = random.nextInt(10000000);
-        for (Svømmer s : medlemmer)
-            while (nytIDNummer==s.getIDNummer()){
-                nytIDNummer = random.nextInt(10000000);
-            }
-        return nytIDNummer;
-    }
+    
 }
