@@ -111,7 +111,7 @@ public class FileHandler {
             }
 
 
-            a.add(new Svømmer(attributter[0], idNummer, aldersGruppe, erAktiv, alder, attributter[7], attributter[8], telefonNummer, attributter[10], crawl, rygCrawl, brystSvømning, butterfly, attributter[15], attributter[16], attributter[17], attributter[18]));
+            a.add(new Svømmer(attributter[0], idNummer, aldersGruppe,erKonkurrenceSvømmer, erAktiv, alder, attributter[7], attributter[8], telefonNummer, attributter[10], crawl, rygCrawl, brystSvømning, butterfly, attributter[15], attributter[16], attributter[17], attributter[18]));
 
         }
 
