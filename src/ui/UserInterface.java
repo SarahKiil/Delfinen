@@ -387,6 +387,14 @@ public class UserInterface {
                     System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
                     tilføjSvømmer();
                 }
+                System.out.println("Er svømmeren en konkurrence svømmer?");
+                System.out.println("1. Ja.");
+                System.out.println("2. Nej.");
+                char konkurrenceValg = keyboard.next().charAt(0);
+                boolean erKonkurrenceSvømmer = false;
+                if (konkurrenceValg == '1'){
+                    erKonkurrenceSvømmer = true;
+                }
                 int telefonNummer = keyboard.nextInt();
                 System.out.println("Vælg hvilke discipliner du vil tilføje ved at skrive tallene(uden at bruge enter i mellem)");
                 System.out.println("1. Crawl");
