@@ -16,6 +16,7 @@ public class UserInterface {
     public void startProgram() {
         controller = new Controller();
         controller.tilføjGemteMedlemmer();
+        controller.tilføjGemteResultater();
         while (kørProgrammet) {
             menu();
         }
@@ -35,6 +36,7 @@ public class UserInterface {
             System.out.println("4. Gem de ændrede data.");
             System.out.println("5. Vis træningsresultater.");
             System.out.println("6. Indtast nye træningsresultater.");
+            System.out.println("7. Stævne menu.");
             System.out.println("9. Luk programmet.");
             if (!keyboard.hasNextInt()) {
                 String text = keyboard.next();
@@ -62,6 +64,8 @@ public class UserInterface {
                 case '6':
                     indtastTræningsResultat();
                     break;
+                case '7':
+                    stævneMenu();
                 case '9':
                     lukProgrammet();
             }
@@ -72,6 +76,7 @@ public class UserInterface {
             private void gemSvømmere () {
                 System.out.println("Dine ændringer er nu gemt!");
                 controller.gemSvømmmere();
+                controller.gemResultater();
            }
 
             private void visTræningsResultat () {
@@ -446,7 +451,7 @@ public class UserInterface {
                     aldersGruppe = "Senior";
                 }
 
-                controller.tilføjSvømmer(navn, idNummer, aldersGruppe, true, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
+                controller.tilføjSvømmer(navn, idNummer, aldersGruppe, true, erKonkurrenceSvømmer, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
                 controller.gemSvømmmere();
                 System.out.println("Svømmeren er oprettet.");
                 ændret = true;
@@ -653,6 +658,108 @@ public class UserInterface {
                 System.out.println("Tryk på enter for at gå tilbage til menuen.");
                 keyboard.nextLine();
 
+            }
+
+            private void stævneMenu(){
+                System.out.println("Vil du oprette et nyt stævne eller se stævne resultater?");
+                System.out.println("1. Opret nyt stævne.");
+                System.out.println("2. Se stævne resultat for bestemt person.");
+                System.out.println("3. Se bedste resulter indenfor en disciplin.");
+                char stævneValg = keyboard.next().charAt(0);
+                if (stævneValg == '1') {
+                    System.out.println("Opretter nyt stævne.");
+                    System.out.println("Hvad er navnet på stævnet?");
+                    String stævneNavn = keyboard.next();
+                    System.out.println("Hvilken dato fandt stævnet sted?");
+                    String stævneDato = keyboard.next();
+                    System.out.println("Stævnet er oprettet. Tilføj nu en svømmer til stævnet.");
+
+                    if (controller.visMedlemmer().size() == 0) {
+                        System.out.println("Du har ikke registreret nogen medlemmer endnu.");
+                        tilføjSvømmer();
+                    }
+
+                    System.out.println("Vil du søge ved at bruge medlemmets navn eller medlems ID?");
+                    System.out.println("1. Navn.");
+                    System.out.println("2. ID.");
+                    if (!keyboard.hasNextInt()) {
+                        String text = keyboard.next();
+                        System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
+                        søgPåEnSvømmer();
+                    }
+                    char søgeValg = keyboard.next().charAt(0);
+                    if (søgeValg == '2') {
+                        søgViaID();
+                    }
+                    char valg = 1;
+                    do {
+                        System.out.println("Skriv navnet på det medlem, du vil søge efter:");
+                        String søgeNavn = keyboard.next();
+                        System.out.println("Matchende medlemmer fundet:" + controller.søgMedlem(søgeNavn));
+                        System.out.println("Skriv navnet på det medlem, der deltog i stævnet");
+                        keyboard.nextLine();
+                        String bestemtSøgeNavn = keyboard.nextLine();
+                        if (controller.visMedlem(bestemtSøgeNavn) == null) {
+                            System.out.println("Kunne ikke finde: " + bestemtSøgeNavn);
+
+                        }
+                        System.out.println("Hvilken disciplin deltog svømmeren i?");
+                        String disciplin = keyboard.nextLine();
+                        System.out.println("Hvad var svømmerens resultat(i sekunder)?");
+                        int resultat = keyboard.nextInt();
+                        controller.visMedlem(bestemtSøgeNavn).tilføjStævne(stævneNavn, stævneDato, resultat, disciplin);
+                        System.out.println("Skal der tilføjes endnu en svømmer til stævnet?");
+                        System.out.println("1. Tilføj ekstra svømmer.");
+                        System.out.println("2. Gå tilbage til menu.");
+                        valg = keyboard.next().charAt(0);
+                    } while (valg != '2');
+                }
+                else if (stævneValg == '2'){
+                    System.out.println("Skriv navnet på det medlem, du vil søge efter:");
+                    String søgeNavn = keyboard.next();
+                    System.out.println("Matchende medlemmer fundet:" + controller.søgMedlem(søgeNavn));
+                    System.out.println("Skriv navnet på det medlem, du vil se stævne resultater for");
+                    keyboard.nextLine();
+                    String bestemtSøgeNavn = keyboard.nextLine();
+                    if (controller.visMedlem(bestemtSøgeNavn) == null) {
+                        System.out.println("Kunne ikke finde: " + bestemtSøgeNavn);
+
+                    }
+                    System.out.println("Svømmeren har deltaget i følgende stævner: " + controller.visMedlem(bestemtSøgeNavn).visStævner());
+
+                }
+                else if (stævneValg == '3'){
+                    System.out.println("Vil du se resultaterne for juniorer eller seniorer?");
+                    System.out.println("1. Junior");
+                    System.out.println("2. Senior");
+                    char alderValg = keyboard.next().charAt(0);
+                    String aldersGruppe = "Senior";
+                    if (alderValg == '1'){
+                        aldersGruppe = "Junior";
+                    }
+
+                    System.out.println("Hvilken disciplin vil du se resultater for?");
+                    System.out.println("1. Crawl");
+                    System.out.println("2. Rygcrawl");
+                    System.out.println("3. Butterfly");
+                    System.out.println("4. Brystsvømning");
+                    char disciplinValg = keyboard.next().charAt(0);
+                    String disciplin = "crawl";
+                    if (disciplinValg=='1'){
+                        disciplin = "crawl";
+                    }
+                    if (disciplinValg=='2'){
+                        disciplin = "Rygcrawl";
+                    }
+                    if (disciplinValg=='3'){
+                        disciplin = "Butterfly";
+                    }
+                    if (disciplinValg=='4'){
+                        disciplin = "Brystsvømning";
+                    }
+
+                    System.out.println(controller.bedsteStævneResultater(disciplin, aldersGruppe));
+                }
             }
 
     }

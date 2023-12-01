@@ -5,30 +5,49 @@ import data.Database;
 import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Date;
+import domain.Stævne;
 
 public class Controller {
 
     private Database db;
+    private Stævne st;
 
     public Controller() {
         db = new Database();
 
+
     }
 
-    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
-        db.tilføjSvømmer(navn, idNummer, aldersGruppe, erAktiv, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
+    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
+        db.tilføjSvømmer(navn, idNummer, aldersGruppe, erAktiv, erKonkurrenceSvømmer, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
     }
 
     public ArrayList visMedlemmer() {
         return db.visMedlemmer();
     }
 
+    public ArrayList bedsteStævneResultater(String disciplin, String aldersGruppe){
+        return db.bedsteStævneResultater(disciplin, aldersGruppe);
+    }
+
+    public ArrayList visStævneResultater(String disciplin){
+        return db.visStævneResultater(disciplin);
+    }
+
     public void gemSvømmmere() {
         db.gemSvømmere(db.visMedlemmer());
     }
 
+    public void gemResultater() {
+        db.gemResultater(db.visMedlemmer());
+    }
+
     public void tilføjGemteMedlemmer() {
         db.tilføjGemteMedlemmer(db.visMedlemmer());
+    }
+
+    public void tilføjGemteResultater(){
+        db.tilføjGemteResultater(db.visMedlemmer());
     }
 
     public String søgMedlem(String søgeNavn) {
@@ -83,6 +102,15 @@ public class Controller {
     public void redigerTelefonnummer(String bestemtSøgeNavn, int nytTelefonnummer){
         db.redigerTelefonnummer(bestemtSøgeNavn, nytTelefonnummer);
     }
+
+    public String getStævneNavn(){
+        return st.getNavn();
+    }
+
+    public String getStævneDato(){
+        return st.getDato();
+    }
+
 
    /* public int getBedsteResultatCrawl(){
         return sv.getBedsteResultatCrawl();

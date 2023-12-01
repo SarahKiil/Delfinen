@@ -1,9 +1,7 @@
 package domain;
 
-import data.FileHandler;
-
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Collections;
 import java.util.Date;
 
 public class Svømmer {
@@ -24,13 +22,17 @@ public class Svømmer {
     private String bedsteResultatRygCrawlDato = "Intet";
     private String bedsteResultatBrystSvømningDato = "Intet";
     private String bedsteResultatButterflyDato = "Intet";
+    private ArrayList<Stævne> stævner = new ArrayList<Stævne>();
+    private ArrayList<Integer> stævneResultater = new ArrayList<>();
+    private boolean erKonkurrenceSvømmer = false;
 
 
-    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
+    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
         this.navn = navn;
         this.idNummer = idNummer;
         this.aldersGruppe = aldersGruppe;
         this.erAktiv = erAktiv;
+        this.erKonkurrenceSvømmer = erKonkurrenceSvømmer;
         this.adresse = adresse;
         this.alder = alder;
         this.emailAdresse = emailAdresse;
@@ -39,11 +41,12 @@ public class Svømmer {
 
     }
 
-    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDato) {
+    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDato) {
         this.navn = navn;
         this.idNummer = idNummer;
         this.aldersGruppe = aldersGruppe;
         this.erAktiv = erAktiv;
+        this.erKonkurrenceSvømmer = erKonkurrenceSvømmer;
         this.alder = alder;
         this.adresse = adresse;
         this.emailAdresse = emailAdresse;
@@ -62,6 +65,30 @@ public class Svømmer {
 
     public Svømmer() {
 
+    }
+
+    public void tilføjStævne(String navn, String dato, int resultat, String disciplin){
+        stævner.add(new Stævne(navn, dato, resultat, disciplin));
+    }
+
+    public ArrayList<Stævne> visStævner(){
+        return stævner;
+    }
+
+    public void sorterStævneResultat() {
+
+        for (Stævne t : stævner) {
+            stævneResultater.add(t.getResultat());
+        }
+
+    }
+
+    public int visStævneResultat() {
+        Collections.sort(stævneResultater);
+        for (Integer i : stævneResultater) {
+            return i;
+        }
+        return 0;
     }
 
 
@@ -159,6 +186,10 @@ public class Svømmer {
 
     public boolean isErAktiv() {
         return erAktiv;
+    }
+
+    public boolean isErKonkurrenceSvømmer(){
+        return erKonkurrenceSvømmer;
     }
 
     public void setErAktiv(boolean erAktiv) {
