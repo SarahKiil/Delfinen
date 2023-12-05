@@ -18,8 +18,8 @@ public class Controller {
 
     }
 
-    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
-        db.tilføjSvømmer(navn, idNummer, aldersGruppe, erAktiv, erKonkurrenceSvømmer, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin);
+    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, double betaltBeløb) {
+        db.tilføjSvømmer(navn, idNummer, aldersGruppe, erAktiv, erKonkurrenceSvømmer, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin, betaltBeløb);
     }
 
     public ArrayList visMedlemmer() {
@@ -60,6 +60,14 @@ public class Controller {
 
     public Svømmer visMedlemID(int søgeID) {
         return db.visMedlemID(søgeID);
+    }
+
+    public double beregnMedlemsRestance(String bestemSøgeNavn){
+        return db.beregnMedlemsRestance(bestemSøgeNavn);
+    }
+
+    public double betaltKontingentIAlt(){
+        return db.betaltKontingentIAlt();
     }
 
     /*public int getAlderIÅrstal(){
@@ -109,6 +117,10 @@ public class Controller {
 
     public String getStævneDato(){
         return st.getDato();
+    }
+
+    public double beregnSamletKontingent(){
+        return db.beregnSamletKontingent();
     }
 
 

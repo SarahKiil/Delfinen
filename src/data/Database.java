@@ -33,11 +33,11 @@ public class Database {
 
     }
 
-    public void gemResultater(ArrayList medlemmer){
+    public void gemResultater(ArrayList medlemmer) {
         fh.gemResultater(medlemmer);
     }
 
-    public void tilføjGemteResultater(ArrayList medlemmer){
+    public void tilføjGemteResultater(ArrayList medlemmer) {
         fh.addGemteResultater(medlemmer);
     }
 
@@ -97,8 +97,8 @@ public class Database {
         this.medlemmer = medlemmer;
     }
 
-    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
-        medlemmer.add(new Svømmer(navn, idNummer, aldersGruppe, erAktiv, erKonkurrenceSvømmer, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin));
+    public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, double betaltBeløb) {
+        medlemmer.add(new Svømmer(navn, idNummer, aldersGruppe, erAktiv, erKonkurrenceSvømmer, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin, betaltBeløb));
     }
 
     public void redigerAdresse(String bestemtSøgeNavn, String nyAdresse) {
@@ -165,8 +165,8 @@ public class Database {
     }
 
     //tilføj if disciplin og if senior og top 5?
-    public ArrayList<Resultat> bedsteStævneResultater(String disciplin, String aldersGruppe){
-    ArrayList<Resultat> bedsteResultater = new ArrayList<>();
+    public ArrayList<Resultat> bedsteStævneResultater(String disciplin, String aldersGruppe) {
+        ArrayList<Resultat> bedsteResultater = new ArrayList<>();
         for (Svømmer s : medlemmer) {
             for (Stævne t : s.visStævner()) {
                 if (s.getAldersGruppe() == aldersGruppe) {
@@ -182,4 +182,77 @@ public class Database {
         }
         return bedsteResultater;
     }
+
+    public double beregnSamletKontingent() {
+        int medlemskabJunior = 1000;
+        int medlemskabSenior = 1600;
+        double seniorRabatIProcent = 0.25;
+        int passivt = 500;
+        double kontingentIAlt = 0;
+        Date dagsDato = new Date();
+
+        for (Svømmer s : medlemmer) {
+            if (s.getAldersGruppe().contains("Junior")) {
+                kontingentIAlt = kontingentIAlt + medlemskabJunior;
+            }
+            if (s.getAldersGruppe().contains("Senior") && (dagsDato.getYear() + 1900) - s.getAlder().getYear() < 60) {
+                kontingentIAlt = kontingentIAlt + medlemskabSenior;
+            }
+
+            if ((dagsDato.getYear() + 1900) - s.getAlder().getYear() > 59) {
+                kontingentIAlt = kontingentIAlt + (medlemskabSenior * (1 - seniorRabatIProcent));
+
+            }
+            if (s.isErAktiv() != true) {
+                kontingentIAlt = kontingentIAlt + passivt;
+            }
+
+        }
+        return kontingentIAlt;
+    }
+
+
+    public double beregnMedlemsRestance(String bestemtSøgeNavn) {
+
+        int medlemskabJunior = 1000;
+        int medlemskabSenior = 1600;
+        double seniorRabatIProcent = 0.25;
+        int passivt = 500;
+        double restance = 0;
+        Date dagsDato = new Date();
+
+        for (Svømmer s : medlemmer) {
+            if (s.getNavn().equalsIgnoreCase(bestemtSøgeNavn)) {
+                if (s.getAldersGruppe().contains("Junior")) {
+                    restance = medlemskabJunior - s.getBetaltBeløb();
+                }
+                if (s.getAldersGruppe().contains("Senior") && (dagsDato.getYear() + 1900) - s.getAlder().getYear() < 60) {
+                    restance = medlemskabSenior - s.getBetaltBeløb();
+                }
+
+                if ((dagsDato.getYear() + 1900) - s.getAlder().getYear() > 59) {
+                    restance = (medlemskabSenior * (1 - seniorRabatIProcent)) - s.getBetaltBeløb();
+
+                }
+                if (s.isErAktiv() != true) {
+                    restance = passivt - s.getBetaltBeløb();
+                }
+
+            }
+
+
+        }
+        return restance;
+    }
+
+    public double betaltKontingentIAlt(){
+        double betaltBeløb = 0;
+        for (Svømmer s : medlemmer){
+            betaltBeløb = betaltBeløb + s.getBetaltBeløb();
+        }
+        return betaltBeløb;
+    }
+
 }
+
+

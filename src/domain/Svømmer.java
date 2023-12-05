@@ -25,9 +25,10 @@ public class Svømmer {
     private ArrayList<Stævne> stævner = new ArrayList<Stævne>();
     private ArrayList<Integer> stævneResultater = new ArrayList<>();
     private boolean erKonkurrenceSvømmer = false;
+    private double betaltBeløb;
 
 
-    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin) {
+    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, double betaltBeløb) {
         this.navn = navn;
         this.idNummer = idNummer;
         this.aldersGruppe = aldersGruppe;
@@ -38,6 +39,7 @@ public class Svømmer {
         this.emailAdresse = emailAdresse;
         this.telefonNummer = telefonNummer;
         this.svømmeDisciplin = svømmeDisciplin;
+        this.betaltBeløb = betaltBeløb;
 
     }
 
@@ -60,6 +62,7 @@ public class Svømmer {
         this.bedsteResultatRygCrawlDato = bedsteResultatRygCrawlDato;
         this.bedsteResultatBrystSvømningDato = bedsteResultatBrystSvømningDato;
         this.bedsteResultatButterflyDato = bedsteResultatButterflyDato;
+        this.betaltBeløb = betaltBeløb;
 
     }
 
@@ -238,6 +241,14 @@ public class Svømmer {
 
     public int getIDNummer(){
         return idNummer;
+    }
+
+    public double getBetaltBeløb(){
+        return betaltBeløb;
+    }
+
+    public void setBetaltBeløb(double betaltBeløb){
+        this.betaltBeløb=betaltBeløb;
     }
     
     @Override

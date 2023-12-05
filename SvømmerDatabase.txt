@@ -1,1 +1,1 @@
-stævnemand,1876847,Senior,true,false,1990,10,10,vejvej,mail,1,rygcrawl og butterfly,0,0,0,0,Intet,Intet,Intet,Intet,førstestævne,10/20/2020,100,crawl
+Bobby,8136442,Senior,true,true,1990,1,1,vej,mail,1234,crawl; brystsvømning og butterfly,0,0,0,0,Intet,Intet,Intet,0.0,1000.0

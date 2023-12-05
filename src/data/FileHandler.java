@@ -24,7 +24,6 @@ public class FileHandler {
             throw new RuntimeException(e);
         }
         for (Svømmer s : a) {
-            for (Stævne t : s.visStævner())
                 output.println(s.getNavn() + "," +
                         s.getIDNummer() + "," +
                         s.getAldersGruppe() + "," +
@@ -45,11 +44,7 @@ public class FileHandler {
                         s.getBedsteResultatRygCrawlDato() + "," +
                         s.getBedsteResultatBrystSvømningDato() + "," +
                         s.getBedsteResultatButterflyDato() + "," +
-                        t.getNavn() + "," +
-                        t.getDato() + "," +
-                        t.getResultat() + "," +
-                        t.getDisciplin()
-
+                        s.getBetaltBeløb()
                     );
         }
         output.close();
@@ -95,6 +90,7 @@ public class FileHandler {
             int brystSvømning = Integer.parseInt(attributter[14]);
             int butterfly = Integer.parseInt(attributter[15]);
             int idNummer = Integer.parseInt(attributter[1]);
+            double betaltBeløb = Double.parseDouble(attributter[20]);
 
             Date dagsDato = new Date();
             Date alder = new Date(alderIÅrstal,alderIMåneder,alderIDage);
@@ -111,7 +107,7 @@ public class FileHandler {
             }
 
 
-            a.add(new Svømmer(attributter[0], idNummer, aldersGruppe,erKonkurrenceSvømmer, erAktiv, alder, attributter[7], attributter[8], telefonNummer, attributter[10], crawl, rygCrawl, brystSvømning, butterfly, attributter[15], attributter[16], attributter[17], attributter[18]));
+            a.add(new Svømmer(attributter[0], idNummer, aldersGruppe, erAktiv, erKonkurrenceSvømmer, alder, attributter[8], attributter[9], telefonNummer, attributter[11], crawl, rygCrawl, brystSvømning, butterfly, attributter[17], attributter[18], attributter[19], attributter[20], betaltBeløb));
 
         }
 
