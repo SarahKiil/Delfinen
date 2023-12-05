@@ -616,12 +616,12 @@ public class UserInterface {
         char erAktiv = keyboard.next().charAt(0);
         boolean nyErAktiv = true;
 
-                if (erAktiv == '2') {
-                    nyErAktiv = false;
-                }
-                controller.redigerErAktiv(bestemtSøgeNavn, nyErAktiv);
-                System.out.println("Styrkeniveauet er ændret");
-                System.out.println(controller.visMedlem(bestemtSøgeNavn));
+        if (erAktiv == '2') {
+            nyErAktiv = false;
+        }
+        controller.redigerErAktiv(bestemtSøgeNavn, nyErAktiv);
+        System.out.println("Aktivitetsstatus er ændret");
+        System.out.println(controller.visMedlem(bestemtSøgeNavn));
 
         ændret = true;
         System.out.println("Tryk på enter for at gå tilbage til menuen.");

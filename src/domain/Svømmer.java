@@ -43,7 +43,7 @@ public class Svømmer {
 
     }
 
-    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDato) {
+    public Svømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, int bedsteResultatCrawl, int bedsteResultatRygCrawl, int bedsteResultatBrystSvømning, int bedsteResultatButterfly, String bedsteResultatCrawlDato, String bedsteResultatRygCrawlDato, String bedsteResultatBrystSvømningDato, String bedsteResultatButterflyDato, double betaltBeløb) {
         this.navn = navn;
         this.idNummer = idNummer;
         this.aldersGruppe = aldersGruppe;
