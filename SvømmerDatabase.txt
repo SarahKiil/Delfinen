@@ -1,1 +1,4 @@
-Bobby,8136442,Senior,true,true,1990,1,1,vej,mail,1234,crawl; brystsvømning og butterfly,0,0,0,0,Intet,Intet,Intet,0.0,1000.0
+Bobby,8136442,Senior,true,true,1990,1,1,vej,mail,1234,crawl; brystsvømning og butterfly,0,0,0,0,0.0,1000.0,1000.0,1000.0,1000.0
+12345678,4885426,Senior,true,true,1990,2,3,tis,tisvej,12345678,crawl og rygcrawl,0,0,0,0,Intet,Intet,0.0,0.0,0.0
+Acne,9431021,Senior,true,true,1990,3,2,tis,tismail,1,intet,0,0,0,0,Intet,Intet,0.0,0.0,0.0
+victor,5790168,Senior,true,true,1900,3,2,tisvej,tismail,23456789,crawl og rygcrawl,0,0,0,0,Intet,Intet,Intet,0.0,0.0
