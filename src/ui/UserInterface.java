@@ -22,10 +22,6 @@ public class UserInterface {
         }
     }
 
-
-    // TODO etabler løkke i stedet for at kalde menu()
-    // TODO slet alle kald-til-menu metoder
-    // TODO lav hold
     char menuValg = 0;
 
     private void menu() {
@@ -125,59 +121,61 @@ public class UserInterface {
         switch (brugerValg) {
             case '1':
                 if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawl() == 0) {
-                    System.out.println("domain.Svømmer har ingen resultater for denne disciplin");
+                    System.out.println("Medlemmet har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
                     keyboard.nextLine();
-                }
-                System.out.println(bestemtSøgeNavn + " bedste resultat i crawl er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawl() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawlDato());
-                System.out.println("Tryk på enter for at gå tilbage til menuen.");
-                keyboard.nextLine();
-                keyboard.nextLine();
+                } else if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawl() > 0){
+                    System.out.println(bestemtSøgeNavn + " bedste resultat i crawl er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawl() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawlDato());
+                    System.out.println("Tryk på enter for at gå tilbage til menuen.");
+                    keyboard.nextLine();
+                    keyboard.nextLine();}
+                break;
 
             case '2':
                 if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatRygCrawl() == 0) {
-                    System.out.println("domain.Svømmer har ingen resultater for denne disciplin");
+                    System.out.println("Medlemmet har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
                     keyboard.nextLine();
 
-                }
-                System.out.println(bestemtSøgeNavn + " bedste resultat i rygcrawl er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatRygCrawl() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatRygCrawlDato());
+                } else if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatRygCrawl() > 0)
+                    System.out.println(bestemtSøgeNavn + " bedste resultat i rygcrawl er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatRygCrawl() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatRygCrawlDato());
                 System.out.println("Tryk på enter for at gå tilbage til menuen.");
                 keyboard.nextLine();
                 keyboard.nextLine();
+                break;
 
             case '3':
                 if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatBrystSvømning() == 0) {
-                    System.out.println("domain.Svømmer har ingen resultater for denne disciplin");
+                    System.out.println("Medlemmet har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
                     keyboard.nextLine();
 
-                }
-                System.out.println(bestemtSøgeNavn + " bedste resultat i brystsvømning er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatBrystSvømning() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatBrystSvømningDato());
+                } else if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatBrystSvømning() > 0)
+                    System.out.println(bestemtSøgeNavn + " bedste resultat i brystsvømning er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatBrystSvømning() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatBrystSvømningDato());
                 System.out.println("Tryk på enter for at gå tilbage til menuen.");
                 keyboard.nextLine();
                 keyboard.nextLine();
+                break;
 
             case '4':
                 if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatButterfly() == 0) {
-                    System.out.println("domain.Svømmer har ingen resultater for denne disciplin");
+                    System.out.println("Medlemmet har ingen resultater for denne disciplin");
                     System.out.println("Tryk på enter for at gå tilbage til menuen.");
                     keyboard.nextLine();
                     keyboard.nextLine();
 
-                }
-                System.out.println(bestemtSøgeNavn + " bedste resultat i butterfly er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatButterfly() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatButterflyDato());
+                } else if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatButterfly() > 0)
+                    System.out.println(bestemtSøgeNavn + " bedste resultat i butterfly er " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatButterfly() + " sekunder, opnået den " + controller.visMedlem(bestemtSøgeNavn).getBedsteResultatButterflyDato());
                 System.out.println("Tryk på enter for at gå tilbage til menuen.");
                 keyboard.nextLine();
                 keyboard.nextLine();
-
-            case '5':
+                break;
 
         }
-        visTræningsResultat();
+
     }
 
     private void indtastTræningsResultat() {
@@ -225,13 +223,13 @@ public class UserInterface {
         }
 
         if (!svømmerButterfly && !svømmerBrystsvømning && !svømmerCrawl && !svømmerRygCrawl) {
-            System.out.println("Denne svømmer er ikke aktiv i nogle træningsdiscipliner");
+            System.out.println("Denne svømmer er ikke aktiv i nogle træningsdiscipliner.");
             System.out.println("Tryk på enter for at gå tilbage til menuen.");
             keyboard.nextLine();
 
         }
 
-        System.out.println("Hvilken træningsdisciplin vil du indtaste resultat for");
+        System.out.println("Hvilken træningsdisciplin vil du indtaste resultat for?");
         if (!keyboard.hasNextInt()) {
             String text = keyboard.next();
             System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
@@ -243,7 +241,7 @@ public class UserInterface {
         switch (brugerValg) {
             case '1':
                 if (svømmerCrawl) {
-                    System.out.println("Hvad er det nye svømmeresultat i crawl(i sekunder)? ");
+                    System.out.println("Hvad er det nye svømmeresultat i crawl (i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
                     System.out.println("Er det nye resultat fra en træning eller en konkurrence?");
                     System.out.println("1. Konkurrence.");
@@ -266,9 +264,10 @@ public class UserInterface {
                     System.out.println("Svømmeren er ikke aktiv i denne disciplin");
 
                 }
+                break;
             case '2':
                 if (svømmerRygCrawl) {
-                    System.out.println("Hvad er det nye svømmeresultat i rygcrawl(i sekunder)? ");
+                    System.out.println("Hvad er det nye svømmeresultat i rygcrawl (i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
                     System.out.println("Er det nye resultat fra en træning eller en konkurrence?");
                     System.out.println("1. Konkurrence.");
@@ -289,9 +288,10 @@ public class UserInterface {
                     keyboard.nextLine();
 
                 } else if (!svømmerRygCrawl) {
-                    System.out.println("Svømmeren er ikke aktiv i denne disciplin");
+                    System.out.println("Svømmeren er ikke aktiv i denne disciplin. ");
 
                 }
+                break;
             case '3':
                 if (svømmerBrystsvømning) {
                     System.out.println("Hvad er det nye svømmeresultat i brystsvømning(i sekunder)? ");
@@ -317,9 +317,10 @@ public class UserInterface {
                     System.out.println("Svømmeren er ikke aktiv i denne disciplin");
 
                 }
+                break;
             case '4':
                 if (svømmerButterfly) {
-                    System.out.println("Hvad er det nye svømmeresultat i butterfly(i sekunder)? ");
+                    System.out.println("Hvad er det nye svømmeresultat i butterfly (i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
                     System.out.println("Er det nye resultat fra en træning eller en konkurrence?");
                     System.out.println("1. Konkurrence.");
@@ -342,16 +343,17 @@ public class UserInterface {
                     System.out.println("Svømmeren er ikke aktiv i denne disciplin");
 
                 }
-            case '5':
+                break;
+
 
         }
-        indtastTræningsResultat();
     }
 
 
     private void lukProgrammet() {
         if (ændret) {
             controller.gemSvømmmere();
+            controller.gemResultater();
         }
         System.out.println("Programmet lukkes og dine ændringer gemmes");
         kørProgrammet = false;
@@ -404,10 +406,10 @@ public class UserInterface {
             erKonkurrenceSvømmer = true;
         }
         System.out.println("Vælg hvilke discipliner du vil tilføje ved at skrive tallene(uden at bruge enter i mellem)");
-        System.out.println("1. Crawl");
+        System.out.println("1. Crawl.");
         System.out.println("2. Rygcrawl.");
-        System.out.println("3. Butterfly");
-        System.out.println("4. Brystsvømning");
+        System.out.println("3. Butterfly.");
+        System.out.println("4. Brystsvømning.");
         String svømmeDisciplin = "intet";
         String disciplinValg = keyboard.next();
         if (disciplinValg.contains("1") && disciplinValg.contains("2") && disciplinValg.contains("3") && disciplinValg.contains("4")) {
@@ -440,7 +442,7 @@ public class UserInterface {
         } else if (disciplinValg.contains("2")) {
             svømmeDisciplin = "rygcrawl";
         } else if (disciplinValg.contains("3")) {
-            svømmeDisciplin = "buttefly";
+            svømmeDisciplin = "butterfly";
         } else if (disciplinValg.contains("4")) {
             svømmeDisciplin = "brystsvømning";
         }
@@ -468,7 +470,7 @@ public class UserInterface {
 
         controller.tilføjSvømmer(navn, idNummer, aldersGruppe, true, erKonkurrenceSvømmer, alder, adresse, emailAdresse, telefonnummer, svømmeDisciplin, 0);
         controller.gemSvømmmere();
-        System.out.println("Svømmeren er oprettet.");
+        System.out.println("Svømmeren er nu oprettet.");
         ændret = true;
 
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
@@ -483,18 +485,7 @@ public class UserInterface {
             tilføjSvømmer();
         }
 
-        System.out.println("Vil du søge ved at bruge medlemmets navn eller medlems ID?");
-        System.out.println("1. Navn.");
-        System.out.println("2. ID.");
-        if (!keyboard.hasNextInt()) {
-            String text = keyboard.next();
-            System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
-            søgPåEnSvømmer();
-        }
-        char søgeValg = keyboard.next().charAt(0);
-        if (søgeValg == '2') {
-            søgViaID();
-        }
+
         System.out.println("Skriv navnet på det medlem, du vil søge efter:");
         String søgeNavn = keyboard.next();
         System.out.println("Matchende medlemmer fundet:" + controller.søgMedlem(søgeNavn));
@@ -505,15 +496,17 @@ public class UserInterface {
             System.out.println("Kunne ikke finde: " + bestemtSøgeNavn);
 
         }
-        System.out.println(controller.visMedlem(bestemtSøgeNavn));
-        if (controller.visMedlem(bestemtSøgeNavn).isErKonkurrenceSvømmer() && controller.visMedlem(bestemtSøgeNavn).getAldersGruppe().contains("Junior")){
-            System.out.println("Svømmerens træner er træner 1");
+        else if (controller.visMedlem(bestemtSøgeNavn) != null) {
+            System.out.println(controller.visMedlem(bestemtSøgeNavn));
+            if (controller.visMedlem(bestemtSøgeNavn).isErKonkurrenceSvømmer() && controller.visMedlem(bestemtSøgeNavn).getAldersGruppe().contains("Junior")) {
+                System.out.println("Svømmerens træner er træner 1");
+            }
+            if (controller.visMedlem(bestemtSøgeNavn).isErKonkurrenceSvømmer() && controller.visMedlem(bestemtSøgeNavn).getAldersGruppe().contains("Senior")) {
+                System.out.println("Svømmerens træner er træner 2");
+            }
+            System.out.println("Tryk på enter for at gå tilbage til menuen.");
+            keyboard.nextLine();
         }
-        if (controller.visMedlem(bestemtSøgeNavn).isErKonkurrenceSvømmer() && controller.visMedlem(bestemtSøgeNavn).getAldersGruppe().contains("Senior")){
-                System.out.println("Svømmerens træner er træner 2"); }
-                System.out.println("Tryk på enter for at gå tilbage til menuen.");
-        keyboard.nextLine();
-
     }
 
     private void søgViaID() {
@@ -565,18 +558,42 @@ public class UserInterface {
         switch (redigerMedlem) {
             case '1':
                 redigerNavn(bestemtSøgeNavn);
+                break;
             case '2':
                 redigerAktivitetsStatus(bestemtSøgeNavn);
+                break;
             case '3':
                 redigerAdresse(bestemtSøgeNavn);
+                break;
             case '4':
                 redigerEmailAdresse(bestemtSøgeNavn);
+                break;
             case '5':
                 redigerTelefonnummer(bestemtSøgeNavn);
+                break;
             case '6':
                 redigerSvømmeDisciplin(bestemtSøgeNavn);
+                break;
+            case '7':
+                redigerKonkurrenceStatus(bestemtSøgeNavn);
+                break;
         }
-        redigerEtMedlem();
+
+    }
+
+    private void redigerKonkurrenceStatus(String bestemtSøgeNavn) {
+        System.out.println("Er medlemmet en konkurrence svømmer?");
+        System.out.println("1. Ja.");
+        System.out.println("2. Nej.");
+        char konkurrenceValg = keyboard.next().charAt(0);
+        if (konkurrenceValg == '1') {
+            controller.visMedlem(bestemtSøgeNavn).setErKonkurrenceSvømmer(true);
+        } else if (konkurrenceValg == '2') {
+            controller.visMedlem(bestemtSøgeNavn).setErKonkurrenceSvømmer(false);
+        }
+        ændret = true;
+        System.out.println("tryk på enter for at gå tilbage til menuen.");
+        keyboard.nextLine();
     }
 
     private void redigerNavn(String bestemtSøgeNavn) {
@@ -618,10 +635,13 @@ public class UserInterface {
 
         if (erAktiv == '2') {
             nyErAktiv = false;
+            controller.visMedlem(bestemtSøgeNavn).setErKonkurrenceSvømmer(false);
         }
         controller.redigerErAktiv(bestemtSøgeNavn, nyErAktiv);
-        System.out.println("Aktivitetsstatus er ændret");
+        System.out.println("Aktivitetsstatus er ændret.");
         System.out.println(controller.visMedlem(bestemtSøgeNavn));
+
+
 
         ændret = true;
         System.out.println("Tryk på enter for at gå tilbage til menuen.");
@@ -683,34 +703,23 @@ public class UserInterface {
         System.out.println("Vil du oprette et nyt stævne eller se stævne resultater?");
         System.out.println("1. Opret nyt stævne.");
         System.out.println("2. Se stævne resultat for bestemt person.");
-        System.out.println("3. Se bedste resulter indenfor en disciplin.");
+        System.out.println("3. Se bedste resultat indenfor en disciplin.");
         char stævneValg = keyboard.next().charAt(0);
         if (stævneValg == '1') {
             System.out.println("Opretter nyt stævne.");
             System.out.println("Hvad er navnet på stævnet?");
             String stævneNavn = keyboard.next();
-            System.out.println("Hvilken dato fandt stævnet sted?");
+            keyboard.nextLine();
+            System.out.println("Hvilken dato fandt stævnet sted?(d/m/å)");
             String stævneDato = keyboard.next();
             System.out.println("Stævnet er oprettet. Tilføj nu en svømmer til stævnet.");
 
             if (controller.visMedlemmer().size() == 0) {
                 System.out.println("Du har ikke registreret nogen medlemmer endnu.");
-                tilføjSvømmer();
+                menu();
             }
 
-            System.out.println("Vil du søge ved at bruge medlemmets navn eller medlems ID?");
-            System.out.println("1. Navn.");
-            System.out.println("2. ID.");
-            if (!keyboard.hasNextInt()) {
-                String text = keyboard.next();
-                System.out.println(text + " er ikke et gyldigt tal. Prøv igen.");
-                søgPåEnSvømmer();
-            }
-            char søgeValg = keyboard.next().charAt(0);
-            if (søgeValg == '2') {
-                søgViaID();
-            }
-            char valg = 1;
+            char valg = '1';
             do {
                 System.out.println("Skriv navnet på det medlem, du vil søge efter:");
                 String søgeNavn = keyboard.next();
@@ -724,7 +733,7 @@ public class UserInterface {
                 }
                 System.out.println("Hvilken disciplin deltog svømmeren i?");
                 String disciplin = keyboard.nextLine();
-                System.out.println("Hvad var svømmerens resultat(i sekunder)?");
+                System.out.println("Hvad var svømmerens resultat (i sekunder)?");
                 int resultat = keyboard.nextInt();
                 controller.visMedlem(bestemtSøgeNavn).tilføjStævne(stævneNavn, stævneDato, resultat, disciplin);
                 System.out.println("Skal der tilføjes endnu en svømmer til stævnet?");

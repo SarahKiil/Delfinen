@@ -24,28 +24,28 @@ public class FileHandler {
             throw new RuntimeException(e);
         }
         for (Svømmer s : a) {
-                output.println(s.getNavn() + "," +
-                        s.getIDNummer() + "," +
-                        s.getAldersGruppe() + "," +
-                        s.isErAktiv() + "," +
-                        s.isErKonkurrenceSvømmer() + "," +
-                        s.getAlderIÅrstal() + "," +
-                        s.getAlderIMåneder() + "," +
-                        s.getAlderIDage() + "," +
-                        s.getAdresse() + "," +
-                        s.getEmailAdresse() + "," +
-                        s.getTelefonNummer() + "," +
-                        s.getSvømmeDisciplin() + "," +
-                        s.getBedsteResultatCrawl() + "," +
-                        s.getBedsteResultatRygCrawl() + "," +
-                        s.getBedsteResultatBrystSvømning() + "," +
-                        s.getBedsteResultatButterfly() + "," +
-                        s.getBedsteResultatCrawlDato() + "," +
-                        s.getBedsteResultatRygCrawlDato() + "," +
-                        s.getBedsteResultatBrystSvømningDato() + "," +
-                        s.getBedsteResultatButterflyDato() + "," +
-                        s.getBetaltBeløb()
-                    );
+            output.println(s.getNavn() + "," +
+                    s.getIDNummer() + "," +
+                    s.getAldersGruppe() + "," +
+                    s.isErAktiv() + "," +
+                    s.isErKonkurrenceSvømmer() + "," +
+                    s.getAlderIÅrstal() + "," +
+                    s.getAlderIMåneder() + "," +
+                    s.getAlderIDage() + "," +
+                    s.getAdresse() + "," +
+                    s.getEmailAdresse() + "," +
+                    s.getTelefonNummer() + "," +
+                    s.getSvømmeDisciplin() + "," +
+                    s.getBedsteResultatCrawl() + "," +
+                    s.getBedsteResultatRygCrawl() + "," +
+                    s.getBedsteResultatBrystSvømning() + "," +
+                    s.getBedsteResultatButterfly() + "," +
+                    s.getBedsteResultatCrawlDato() + "," +
+                    s.getBedsteResultatRygCrawlDato() + "," +
+                    s.getBedsteResultatBrystSvømningDato() + "," +
+                    s.getBedsteResultatButterflyDato() + "," +
+                    s.getBetaltBeløb()
+            );
         }
         output.close();
     }
@@ -68,7 +68,7 @@ public class FileHandler {
                 erAktiv = true;
             } else if (attributter[3]=="false") {
                 erAktiv = false;
-                
+
             }
 
             boolean erKonkurrenceSvømmer = true;

@@ -42,10 +42,11 @@ public class Stævne {
 
     @Override
     public String toString() {
-        return "Stævne: " +
-                ", svømmerens navn: " + navn  +
-                ", dato for stævnet: " + dato +
-                ", svømmeresultat: " + resultat +
-                ", disciplin: " + disciplin;
+        return
+                "Stævnets navn: " + navn  +
+                        ", dato for stævnet: " + dato +
+                        ", svømmeresultat: " + resultat +
+                        ", disciplin: " + disciplin +
+                        " ]";
     }
 }
