@@ -1,7 +1,8 @@
 Agnethe,8916268,Senior,true,true,1994,10,8,Gravervænget 6,agnethemail@gmail.com,28498732,butterfly,0,0,0,0,0.0,0.0,0.0,0.0,0.0
-Bobby bob,2903768,Senior,true,true,2001,2,4,vejvej,mail,12345678,crawl og rygcrawl,0,0,0,0,0.0,0.0,0.0,0.0,0.0
+Bobby bob,2903768,Senior,true,true,2001,2,4,vejvej,mail,12345678,crawl og rygcrawl,90,0,0,0,0.0,0.0,0.0,0.0,0.0
 Markus,9290652,Senior,true,true,1998,10,14,Amager,mail,12345678,brystsvømning,0,0,0,0,0.0,0.0,0.0,0.0,0.0
-Viktor,9914504,Senior,true,true,2001,2,1,vejvejvej,mailmaiml,98765423,crawl,0,0,0,0,Intet,Intet,0.0,0.0,0.0
-Mariam,8857135,Senior,true,true,2003,11,7,adressevej,mailadresse,90785643,crawl,0,0,0,0,Intet,Intet,0.0,0.0,0.0
-Karl kasket,7505481,Senior,true,true,1998,5,2,adreeeesse,maaaaaail,11111111,crawl,0,0,0,0,Intet,Intet,0.0,0.0,0.0
-hej,1929643,Senior,true,false,2003,2,2,afd,sdfg,2134567,rygcrawl,0,0,0,0,Intet,Intet,Intet,Intet,0.0
+Viktor,9914504,Senior,true,true,2001,2,1,vejvejvej,mailmaiml,98765423,crawl,0,0,0,0,0.0,0.0,0.0,0.0,0.0
+Mariam,8857135,Senior,true,true,2003,11,7,adressevej,mailadresse,90785643,crawl,0,0,0,0,0.0,0.0,0.0,0.0,0.0
+Karl kasket,7505481,Senior,true,true,1998,5,2,adreeeesse,maaaaaail,11111111,crawl,0,0,0,0,0.0,0.0,0.0,0.0,0.0
+hej,1929643,Senior,true,true,2003,2,2,afd,sdfg,2134567,rygcrawl,0,0,0,0,0.0,0.0,0.0,0.0,0.0
+tester,3686949,Senior,true,true,1010,10,10,vej,mail,12345678,crawl,100,0,0,0,1,0.0,0.0,0.0,0.0

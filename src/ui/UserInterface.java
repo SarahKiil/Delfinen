@@ -244,9 +244,12 @@ public class UserInterface {
                 if (svømmerCrawl) {
                     System.out.println("Hvad er det nye svømmeresultat i crawl(i sekunder)? ");
                     int nytResultat = keyboard.nextInt();
-                    if (nytResultat < controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawl()) {
+                    if (controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawl() == 0){
                         controller.visMedlem(bestemtSøgeNavn).setBedsteResultatCrawl(nytResultat);
                     }
+                    else if (nytResultat < controller.visMedlem(bestemtSøgeNavn).getBedsteResultatCrawl()) {
+                        controller.visMedlem(bestemtSøgeNavn).setBedsteResultatCrawl(nytResultat);
+                   }
                     System.out.println("Hvad er datoen for det nye resultat? (d/m/å)");
                     String nytResultatDato = keyboard.next();
                     controller.visMedlem(bestemtSøgeNavn).setBedsteResultatCrawlDato(nytResultatDato);
