@@ -16,7 +16,7 @@ public class Resultat {
     @Override
     public String toString() {
         return "Resultat: " +
-                ", svømmerens navn: " + navn + '\'' +
+                ", svømmerens navn: " + navn +
                 ", tid: " + tid;
     }
 }

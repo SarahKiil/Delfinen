@@ -195,16 +195,16 @@ public class Svømmer {
         return erKonkurrenceSvømmer;
     }
 
+    public void setErKonkurrenceSvømmer(boolean erKonkurrenceSvømmer){
+        this.erKonkurrenceSvømmer = erKonkurrenceSvømmer;
+    }
+
     public void setErAktiv(boolean erAktiv) {
         this.erAktiv = erAktiv;
     }
 
     public Date getAlder() {
         return alder;
-    }
-
-    public void setAlder(Date alder) {
-        this.alder = alder;
     }
 
     public String getAdresse() {
@@ -254,9 +254,9 @@ public class Svømmer {
     @Override
     public String toString() {
         return "Svømmerens " +
-                "navn: " + navn + '\'' +
-                " ID: " + idNummer + '\'' +
-                ", aldersgruppen svømmeren tilhører: " + aldersGruppe + '\'' +
+                "navn: " + navn +
+                ", ID: " + idNummer +
+                ", aldersgruppen svømmeren tilhører: " + aldersGruppe +
                 ", er medlemmet aktivt? " + erAktiv +
 
                 ", medlemmets fødselsdagsdato: " + getAlderIDage() + ". " + getAlderIMåneder() + ". " + getAlderIÅrstal() +
