@@ -258,10 +258,9 @@ public class Svømmer {
                 ", ID: " + idNummer +
                 ", aldersgruppen svømmeren tilhører: " + aldersGruppe +
                 ", er medlemmet aktivt? " + erAktiv +
-
                 ", medlemmets fødselsdagsdato: " + getAlderIDage() + ". " + getAlderIMåneder() + ". " + getAlderIÅrstal() +
-                ", medlemmets adresse: " + adresse + '\'' +
-                ", medlemmets emailadresse: " + emailAdresse + '\'' +
+                ", medlemmets adresse: " + adresse +
+                ", medlemmets emailadresse: " + emailAdresse +
                 ", telefonnummer: " + telefonNummer;
     }
     
