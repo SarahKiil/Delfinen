@@ -1,5 +1,7 @@
-Bobby,8136442,Senior,true,true,1990,1,1,vej,mail,1234,crawl; brystsvømning og butterfly,0,0,0,0,1000.0,1000.0,1000.0,1000.0,1000.0
-12345678,4885426,Senior,true,true,1990,2,3,tis,tisvej,12345678,crawl og rygcrawl,0,0,0,0,0.0,0.0,0.0,0.0,0.0
-Acne,9431021,Senior,true,true,1990,3,2,tis,tismail,1,intet,0,0,0,0,0.0,0.0,0.0,0.0,0.0
-victor,5790168,Senior,true,true,1900,3,2,tisvej,tismail,23456789,crawl og rygcrawl,0,0,0,0,Intet,0.0,0.0,700.0,700.0
-John Johnson,1365034,Senior,true,true,1990,10,10,Vejen,Mailen,12345788,crawl og butterfly,0,0,0,0,Intet,Intet,Intet,22/10/2020,0.0
+Agnethe,8916268,Senior,true,true,1994,10,8,Gravervænget 6,agnethemail@gmail.com,28498732,butterfly,0,0,0,0,0.0,0.0,0.0,0.0,0.0
+Bobby bob,2903768,Senior,true,true,2001,2,4,vejvej,mail,12345678,crawl og rygcrawl,0,0,0,0,0.0,0.0,0.0,0.0,0.0
+Markus,9290652,Senior,true,true,1998,10,14,Amager,mail,12345678,brystsvømning,0,0,0,0,0.0,0.0,0.0,0.0,0.0
+Viktor,9914504,Senior,true,true,2001,2,1,vejvejvej,mailmaiml,98765423,crawl,0,0,0,0,Intet,Intet,0.0,0.0,0.0
+Mariam,8857135,Senior,true,true,2003,11,7,adressevej,mailadresse,90785643,crawl,0,0,0,0,Intet,Intet,0.0,0.0,0.0
+Karl kasket,7505481,Senior,true,true,1998,5,2,adreeeesse,maaaaaail,11111111,crawl,0,0,0,0,Intet,Intet,0.0,0.0,0.0
+hej,1929643,Senior,true,false,2003,2,2,afd,sdfg,2134567,rygcrawl,0,0,0,0,Intet,Intet,Intet,Intet,0.0
