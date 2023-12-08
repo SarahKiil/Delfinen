@@ -106,6 +106,10 @@ public class Svømmer {
     public int getAlderIDage(){
         return alder.getDate();
     }
+
+    public void setErKonkurrenceSvømmer(boolean erKonkurrenceSvømmer){
+        this.erKonkurrenceSvømmer = erKonkurrenceSvømmer;
+    }
     public int getBedsteResultatCrawl() {
         return bedsteResultatCrawl;
     }
@@ -199,9 +203,6 @@ public class Svømmer {
         this.erAktiv = erAktiv;
     }
 
-    public void setErKonkurrenceSvømmer(boolean erKonkurrenceSvømmer){
-        this.erKonkurrenceSvømmer = erKonkurrenceSvømmer;
-    }
 
     public Date getAlder() {
         return alder;

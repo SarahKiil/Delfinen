@@ -33,20 +33,15 @@ public class Stævne {
         return disciplin;
     }
 
-    public void setDato(String dato){
-        this.dato=dato;
-    }
-    public void setNavn(String navn){
-        this.navn=navn;
-    }
+
 
     @Override
     public String toString() {
         return
                 "Stævnets navn: " + navn  +
-                        ", dato for stævnet: " + dato +
-                        ", svømmeresultat: " + resultat +
-                        ", disciplin: " + disciplin +
+                ", dato for stævnet: " + dato +
+                ", svømmeresultat: " + resultat +
+                ", disciplin: " + disciplin +
                         " ]";
     }
 }
