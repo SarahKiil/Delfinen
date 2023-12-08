@@ -17,7 +17,6 @@ public class Controller {
 
 
     }
-
     public void tilføjSvømmer(String navn, int idNummer, String aldersGruppe, boolean erAktiv, boolean erKonkurrenceSvømmer, Date alder, String adresse, String emailAdresse, int telefonNummer, String svømmeDisciplin, double betaltBeløb) {
         db.tilføjSvømmer(navn, idNummer, aldersGruppe, erAktiv, erKonkurrenceSvømmer, alder, adresse, emailAdresse, telefonNummer, svømmeDisciplin, betaltBeløb);
     }
